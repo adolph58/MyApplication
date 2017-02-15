@@ -1,0 +1,31 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <!-- 底部栏和顶部栏 -->
+    <dimen name="bottom_navigation">50dp</dimen>
+    <dimen name="top_navigation">48dp</dimen>
+    <!-- 图标尺寸 -->
+    <dimen name="top_navigation_icon">25dp</dimen>
+    <!-- 通用配置 padding -->
+    <dimen name="padding_tiny">6dp</dimen>
+    <dimen name="padding_small">10dp</dimen>
+    <dimen name="padding_normal">12dp</dimen>
+    <dimen name="padding_big">16dp</dimen>
+    <dimen name="padding_large">20dp</dimen>
+    <dimen name="padding_xlarge">24dp</dimen>
+    <!-- 通用配置 text size -->
+    <dimen name="text_size_tiny">10sp</dimen>
+    <dimen name="text_size_small">12sp</dimen>
+    <dimen name="text_size_normal">14sp</dimen>
+    <dimen name="text_size_big">16sp</dimen>
+    <dimen name="text_size_large">18sp</dimen>
+    <dimen name="text_size_xlarge">20sp</dimen>
+    <!-- 标题栏的配置 -->
+    <dimen name="title_margin_bottom">20dp</dimen>
+    <dimen name="title_text_size">18sp</dimen>
+
+    <dimen name="login_button_margin">16dp</dimen>
+    <dimen name="login_button_corner_radius">18dp</dimen>
+
+</resources>
