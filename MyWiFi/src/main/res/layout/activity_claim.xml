@@ -68,6 +68,36 @@
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"/>
     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="10dp"
+        android:layout_margin="10dp">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="设置费率"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:textSize="18sp"/>
+        <EditText
+            android:id="@+id/et_claim_unit_price"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:inputType="textPassword"
+            android:hint="请输入单价：x元/M"
+            android:textSize="16sp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/bisque"/>
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/white"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"/>
+    <LinearLayout
         android:id="@+id/ll_claim_hotspot_type"
         android:layout_width="match_parent"
         android:layout_height="60dp"
@@ -114,6 +144,5 @@
         android:textColor="@color/white"
         android:textSize="18sp"
         />
-
 
 </LinearLayout>
