@@ -56,7 +56,7 @@ public class MyHotspotListAdapter extends BaseAdapter{
         holder = (ViewHolder) convertView.getTag();
         String wifiName = scanResultList.get(position).SSID;
         holder.tvName.setText(wifiName);
-        holder.ivWifi.setImageResource(R.mipmap.wifi_light);
+        holder.ivWifi.setImageResource(R.mipmap.icon_wifi_light);
         return convertView;
     }
 

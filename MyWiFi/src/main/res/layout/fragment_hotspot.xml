@@ -40,7 +40,7 @@
         <ImageView
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:src="@mipmap/wifi_light"
+            android:src="@mipmap/icon_wifi_light"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_marginRight="15dp"/>
@@ -118,7 +118,7 @@
             android:id="@+id/iv_my_hotspot"
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:src="@mipmap/wifi_light"
+            android:src="@mipmap/icon_wifi_light"
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
             android:layout_marginRight="15dp"/>
