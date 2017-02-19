@@ -17,39 +17,39 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
+                android:layout_height="@dimen/com_200dp"
                 android:background="@color/main_color_light">
                 <cn.adolphc.mywifi.ui.CircleImageView
                     android:id="@+id/iv_mine_head_image"
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
+                    android:layout_width="@dimen/com_80dp"
+                    android:layout_height="@dimen/com_80dp"
                     android:layout_centerInParent="true"
                     android:src="@mipmap/default_avatar" />
                 <TextView
                     android:id="@+id/tv_mine_nick_name"
                     android:layout_width="wrap_content"
-                    android:layout_height="20dp"
+                    android:layout_height="@dimen/com_20dp"
                     android:gravity="center"
                     android:layout_below="@+id/iv_mine_head_image"
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="@dimen/margin_small"
                     android:layout_centerHorizontal="true"
                     android:text="昵称"
                     android:textColor="@color/white"
-                    android:textSize="14sp" />
+                    android:textSize="@dimen/text_size_normal" />
             </RelativeLayout>
 
             <RelativeLayout 
                 android:id="@+id/rl_mine_activity"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="@dimen/row_large"
                 android:layout_marginTop="1dp"
                 android:background="@color/white"
-                android:padding="10dp"
+                android:padding="@dimen/padding_small"
                 >
                 <ImageView
                     android:id="@+id/iv_mine_activity"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
+                    android:layout_width="@dimen/icon_small"
+                    android:layout_height="@dimen/icon_small"
                     android:src="@mipmap/activity_light"
                     android:layout_alignParentLeft="true"
                     android:layout_centerVertical="true"
@@ -57,10 +57,10 @@
                 <TextView
                     android:id="@+id/tv_mine_activity"
                     android:layout_width="wrap_content"
-                    android:layout_height="30dp"
+                    android:layout_height="@dimen/row_tiny"
                     android:text="活动"
                     android:gravity="center"
-                    android:textColor="#666666"
+                    android:textColor="@color/mine_text_color"
                     android:textSize="@dimen/text_size_big"
                     android:layout_toRightOf="@id/iv_mine_activity"
                     android:layout_centerVertical="true"
@@ -70,15 +70,15 @@
             <RelativeLayout
                 android:id="@+id/rl_mine_card"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="@dimen/row_large"
                 android:layout_marginTop="1dp"
                 android:background="@color/white"
-                android:padding="10dp"
+                android:padding="@dimen/padding_small"
                 >
                 <ImageView
                     android:id="@+id/iv_mine_card"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
+                    android:layout_width="@dimen/icon_small"
+                    android:layout_height="@dimen/icon_small"
                     android:src="@mipmap/card_light"
                     android:layout_alignParentLeft="true"
                     android:layout_centerVertical="true"
@@ -86,10 +86,10 @@
                 <TextView
                     android:id="@+id/tv_mine_card"
                     android:layout_width="wrap_content"
-                    android:layout_height="30dp"
+                    android:layout_height="@dimen/row_tiny"
                     android:text="我的卡券"
                     android:gravity="center"
-                    android:textColor="#666666"
+                    android:textColor="@color/mine_text_color"
                     android:textSize="@dimen/text_size_big"
                     android:layout_toRightOf="@id/iv_mine_card"
                     android:layout_centerVertical="true"
@@ -97,88 +97,88 @@
                     />
             </RelativeLayout>
             <RelativeLayout 
-                android:id="@+id/rl_mine_expense"
+                android:id="@+id/rl_mine_account"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="@dimen/row_large"
                 android:layout_marginTop="1dp"
                 android:background="@color/white"
-                android:padding="10dp"
+                android:padding="@dimen/padding_small"
                 >
                 <ImageView
-                    android:id="@+id/iv_mine_expense"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:src="@mipmap/expense_light"
+                    android:id="@+id/iv_mine_account"
+                    android:layout_width="@dimen/icon_small"
+                    android:layout_height="@dimen/icon_small"
+                    android:src="@mipmap/count_light"
                     android:layout_alignParentLeft="true"
                     android:layout_centerVertical="true"
                     />
                 <TextView
                     android:id="@+id/tv_mine_expense"
                     android:layout_width="wrap_content"
-                    android:layout_height="30dp"
-                    android:text="我的消费"
+                    android:layout_height="@dimen/row_tiny"
+                    android:text="我的钱包"
                     android:gravity="center"
-                    android:textColor="#666666"
+                    android:textColor="@color/mine_text_color"
                     android:textSize="@dimen/text_size_big"
-                    android:layout_toRightOf="@id/iv_mine_expense"
+                    android:layout_toRightOf="@id/iv_mine_account"
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="10dp"
                     />
             </RelativeLayout>
             <RelativeLayout 
-                android:id="@+id/rl_mine_income"
+                android:id="@+id/rl_mine_insurance"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="@dimen/row_large"
                 android:layout_marginTop="1dp"
                 android:background="@color/white"
-                android:padding="10dp"
+                android:padding="@dimen/padding_small"
                 >
                 <ImageView
-                    android:id="@+id/iv_mine_income"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:src="@mipmap/income_light"
+                    android:id="@+id/iv_mine_insurance"
+                    android:layout_width="@dimen/icon_small"
+                    android:layout_height="@dimen/icon_small"
+                    android:src="@mipmap/icon_insurance_light"
                     android:layout_alignParentLeft="true"
                     android:layout_centerVertical="true"
                     />
                 <TextView
                     android:id="@+id/tv_mine_income"
                     android:layout_width="wrap_content"
-                    android:layout_height="30dp"
-                    android:text="我的收入"
+                    android:layout_height="@dimen/row_tiny"
+                    android:text="保险"
                     android:gravity="center"
-                    android:textColor="#666666"
+                    android:textColor="@color/mine_text_color"
                     android:textSize="@dimen/text_size_big"
-                    android:layout_toRightOf="@id/iv_mine_income"
+                    android:layout_toRightOf="@id/iv_mine_insurance"
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="10dp"
                     />
             </RelativeLayout>
             <RelativeLayout 
-                android:id="@+id/rl_mine_count"
+                android:id="@+id/rl_mine_help"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="@dimen/row_large"
                 android:layout_marginTop="1dp"
                 android:background="@color/white"
-                android:padding="10dp"
+                android:padding="@dimen/padding_small"
                 >
                 <ImageView
-                    android:id="@+id/iv_mine_count"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:src="@mipmap/count_light"
+                    android:id="@+id/iv_mine_help"
+                    android:layout_width="@dimen/icon_small"
+                    android:layout_height="@dimen/icon_small"
+                    android:src="@mipmap/icon_help_light"
                     android:layout_alignParentLeft="true"
                     android:layout_centerVertical="true"
                     />
                 <TextView
                     android:id="@+id/tv_mine_count"
                     android:layout_width="wrap_content"
-                    android:layout_height="30dp"
-                    android:text="账户"
+                    android:layout_height="@dimen/row_tiny"
+                    android:text="帮助"
                     android:gravity="center"
-                    android:textColor="#666666"
+                    android:textColor="@color/mine_text_color"
                     android:textSize="@dimen/text_size_big"
-                    android:layout_toRightOf="@id/iv_mine_count"
+                    android:layout_toRightOf="@id/iv_mine_help"
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="10dp"
                     />
@@ -186,15 +186,15 @@
             <RelativeLayout 
                 android:id="@+id/rl_mine_setting"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="@dimen/row_large"
                 android:layout_marginTop="1dp"
                 android:background="@color/white"
-                android:padding="10dp"
+                android:padding="@dimen/padding_small"
                 >
                 <ImageView
                     android:id="@+id/iv_mine_setting"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
+                    android:layout_width="@dimen/icon_small"
+                    android:layout_height="@dimen/icon_small"
                     android:src="@mipmap/setting_light"
                     android:layout_alignParentLeft="true"
                     android:layout_centerVertical="true"
@@ -202,19 +202,19 @@
                 <TextView
                     android:id="@+id/tv_mine_setting"
                     android:layout_width="wrap_content"
-                    android:layout_height="30dp"
+                    android:layout_height="@dimen/row_tiny"
                     android:text="设置"
                     android:gravity="center"
-                    android:textColor="#666666"
+                    android:textColor="@color/mine_text_color"
                     android:textSize="@dimen/text_size_big"
                     android:layout_toRightOf="@id/iv_mine_setting"
                     android:layout_centerVertical="true"
-                    android:layout_marginLeft="10dp"
+                    android:layout_marginLeft="@dimen/margin_small"
                     />
             </RelativeLayout>
             <View
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
+                android:layout_height="@dimen/com_1dp"
                 android:background="@color/mine_background"/>
         </LinearLayout>
     </ScrollView>

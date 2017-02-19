@@ -2,11 +2,46 @@
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
+    <!-- 通用尺寸 -->
+    <dimen name="com_1dp">1dp</dimen>
+    <dimen name="com_5dp">5dp</dimen>
+    <dimen name="com_10dp">10dp</dimen>
+    <dimen name="com_15dp">15dp</dimen>
+    <dimen name="com_20dp">20dp</dimen>
+    <dimen name="com_25dp">25dp</dimen>
+    <dimen name="com_30dp">30dp</dimen>
+    <dimen name="com_35dp">35dp</dimen>
+    <dimen name="com_40dp">40dp</dimen>
+    <dimen name="com_45dp">45dp</dimen>
+    <dimen name="com_50dp">50dp</dimen>
+    <dimen name="com_55dp">55dp</dimen>
+    <dimen name="com_60dp">60dp</dimen>
+    <dimen name="com_65dp">65dp</dimen>
+    <dimen name="com_70dp">70dp</dimen>
+    <dimen name="com_75dp">75dp</dimen>
+    <dimen name="com_80dp">80dp</dimen>
+    <dimen name="com_85dp">85dp</dimen>
+    <dimen name="com_90dp">90dp</dimen>
+    <dimen name="com_95dp">95dp</dimen>
+    <dimen name="com_100dp">100dp</dimen>
+    <dimen name="com_150dp">150dp</dimen>
+    <dimen name="com_200dp">200dp</dimen>
+
     <!-- 底部栏和顶部栏 -->
     <dimen name="bottom_navigation">50dp</dimen>
     <dimen name="top_navigation">48dp</dimen>
+    <!-- 条目高度 -->
+    <dimen name="row_tiny">30dp</dimen>
+    <dimen name="row_small">35dp</dimen>
+    <dimen name="row_normal">40dp</dimen>
+    <dimen name="row_big">45dp</dimen>
+    <dimen name="row_large">50dp</dimen>
     <!-- 图标尺寸 -->
-    <dimen name="top_navigation_icon">25dp</dimen>
+    <dimen name="icon_tiny">25dp</dimen>
+    <dimen name="icon_small">30dp</dimen>
+    <dimen name="icon_normal">35dp</dimen>
+    <dimen name="icon_big">40dp</dimen>
+    <dimen name="icon_large">45dp</dimen>
     <!-- 通用配置 padding -->
     <dimen name="padding_tiny">6dp</dimen>
     <dimen name="padding_small">10dp</dimen>
@@ -14,7 +49,14 @@
     <dimen name="padding_big">16dp</dimen>
     <dimen name="padding_large">20dp</dimen>
     <dimen name="padding_xlarge">24dp</dimen>
-    <!-- 通用配置 text size -->
+    <!-- 通用配置 margin -->
+    <dimen name="margin_tiny">6dp</dimen>
+    <dimen name="margin_small">10dp</dimen>
+    <dimen name="margin_normal">12dp</dimen>
+    <dimen name="margin_big">16dp</dimen>
+    <dimen name="margin_large">20dp</dimen>
+    <dimen name="margin_xlarge">24dp</dimen>
+    <!-- 字体大小 -->
     <dimen name="text_size_tiny">10sp</dimen>
     <dimen name="text_size_small">12sp</dimen>
     <dimen name="text_size_normal">14sp</dimen>
