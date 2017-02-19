@@ -13,7 +13,7 @@ import org.xutils.x;
 import org.xutils.view.annotation.ViewInject;
 
 import cn.adolphc.mywifi.R;
-import cn.adolphc.mywifi.fragment.FavoriteFragment;
+import cn.adolphc.mywifi.fragment.HotspotFragment;
 import cn.adolphc.mywifi.fragment.MineFragment;
 import cn.adolphc.mywifi.fragment.WifiFragment;
 import cn.adolphc.mywifi.util.ExceptionHandler;
@@ -21,7 +21,7 @@ import cn.adolphc.mywifi.util.ExceptionHandler;
 public class MainActivity extends BaseActivity {
 
     private WifiFragment wifiFragment;
-    private FavoriteFragment favoriteFragment;
+    private HotspotFragment hotspotFragment;
     private MineFragment mineFragment;
     private Fragment currentShowFragment;
     @ViewInject(R.id.ib_main_wifi)
@@ -94,10 +94,10 @@ public class MainActivity extends BaseActivity {
                     ibWiFi.setSelected(false);
                     ibMine.setSelected(false);
                     tvTitle.setText("热点管理");
-                    if (favoriteFragment == null) {
-                        favoriteFragment = new FavoriteFragment();
+                    if (hotspotFragment == null) {
+                        hotspotFragment = new HotspotFragment();
                     }
-                    showFragment(favoriteFragment);
+                    showFragment(hotspotFragment);
                     break;
                 case R.id.ib_main_mine:
                     ibMine.setSelected(true);

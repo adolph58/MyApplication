@@ -14,7 +14,7 @@ import org.xutils.x;
 
 import cn.adolphc.mywifi.R;
 
-public class FavoriteFragment extends Fragment{
+public class HotspotFragment extends Fragment{
 	@ViewInject(R.id.tv_linked_hotspot_ssid)
 	private TextView tvSsid;
 	@ViewInject(R.id.tv_linked_hotspot_bssid)
@@ -26,7 +26,7 @@ public class FavoriteFragment extends Fragment{
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_favorite, container,false);
+        View view = inflater.inflate(R.layout.fragment_hotspot, container,false);
 		x.view().inject(this,view);
 		return view;
     }
