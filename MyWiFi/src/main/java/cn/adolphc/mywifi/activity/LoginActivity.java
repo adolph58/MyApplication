@@ -14,6 +14,7 @@ import android.widget.Toast;
 import cn.adolphc.mywifi.R;
 import cn.adolphc.mywifi.model.AsyncCallback;
 import cn.adolphc.mywifi.model.UserModel;
+import cn.adolphc.mywifi.util.ExceptionHandler;
 
 public class LoginActivity extends BaseActivity {
 
@@ -37,33 +38,38 @@ public class LoginActivity extends BaseActivity {
 
     @Override
     protected void initViews(Bundle savedInstanceState) {
-        setContentView(R.layout.activity_login);
-        x.view().inject(this);
-        btnLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                login();
-            }
-        });
-        tvToRegist.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(LoginActivity.this, RegistActivity.class);
-                startActivity(intent);
-            }
-        });
-        tvFogetPwd.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(LoginActivity.this, "敬请期待！", Toast.LENGTH_SHORT).show();
-            }
-        });
-        ivBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
+        try {
+            setContentView(R.layout.activity_login);
+            x.view().inject(this);
+            btnLogin.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    login();
+                }
+            });
+            tvToRegist.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(LoginActivity.this, RegistActivity.class);
+                    startActivity(intent);
+                }
+            });
+            tvFogetPwd.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(LoginActivity.this, "敬请期待！", Toast.LENGTH_SHORT).show();
+                }
+            });
+            ivBack.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    finish();
+                }
+            });
+        } catch (Exception e) {
+            ExceptionHandler.handleException(e);
+        }
+
     }
 
     @Override

@@ -13,6 +13,7 @@ import org.xutils.x;
 
 import cn.adolphc.mywifi.R;
 import cn.adolphc.mywifi.activity.AccountActivity;
+import cn.adolphc.mywifi.activity.SettingActivity;
 
 
 public class MineFragment extends Fragment{
@@ -90,7 +91,8 @@ public class MineFragment extends Fragment{
 		setting.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-
+				Intent intent = new Intent(getActivity(), SettingActivity.class);
+				startActivity(intent);
 			}
 		});
 

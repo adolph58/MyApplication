@@ -13,6 +13,7 @@ import org.xutils.x;
 import cn.adolphc.mywifi.R;
 import cn.adolphc.mywifi.model.AsyncCallback;
 import cn.adolphc.mywifi.model.UserModel;
+import cn.adolphc.mywifi.util.ExceptionHandler;
 
 public class RegistActivity extends BaseActivity {
 
@@ -35,20 +36,24 @@ public class RegistActivity extends BaseActivity {
 
     @Override
     protected void initViews(Bundle savedInstanceState) {
-        setContentView(R.layout.activity_regist);
-        x.view().inject(this);
-        btnRegist.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                regist();
-            }
-        });
-        ivBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
+        try {
+            setContentView(R.layout.activity_regist);
+            x.view().inject(this);
+            btnRegist.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    regist();
+                }
+            });
+            ivBack.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    finish();
+                }
+            });
+        } catch (Exception e) {
+            ExceptionHandler.handleException(e);
+        }
     }
 
     @Override

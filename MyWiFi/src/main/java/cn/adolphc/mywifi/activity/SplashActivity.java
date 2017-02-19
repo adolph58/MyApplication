@@ -8,6 +8,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.RelativeLayout;
 import cn.adolphc.mywifi.R;
 import cn.adolphc.mywifi.entity.User;
+import cn.adolphc.mywifi.util.ExceptionHandler;
 
 public class SplashActivity extends BaseActivity {
 	RelativeLayout animContainer;
@@ -19,9 +20,14 @@ public class SplashActivity extends BaseActivity {
 
 	@Override
 	protected void initViews(Bundle savedInstanceState) {
-		setContentView(R.layout.activity_splash);
-		animContainer = (RelativeLayout) findViewById(R.id.rl_splash_animcontainer);
-		initAnim();
+		try {
+			setContentView(R.layout.activity_splash);
+			animContainer = (RelativeLayout) findViewById(R.id.rl_splash_animcontainer);
+			initAnim();
+		} catch (Exception e) {
+		    ExceptionHandler.handleException(e);
+		}
+
 	}
 
 	@Override

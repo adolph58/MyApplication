@@ -12,6 +12,7 @@ import org.xutils.x;
 
 import cn.adolphc.mywifi.R;
 import cn.adolphc.mywifi.ui.ClaimTypeDialog;
+import cn.adolphc.mywifi.util.ExceptionHandler;
 
 public class ClaimActivity extends BaseActivity {
 
@@ -31,20 +32,25 @@ public class ClaimActivity extends BaseActivity {
 
     @Override
     protected void initViews(Bundle savedInstanceState) {
-        setContentView(R.layout.activity_claim);
-        x.view().inject(this);
-        llType.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                selectType();
-            }
-        });
-        btnSubmit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                claim();
-            }
-        });
+        try {
+            setContentView(R.layout.activity_claim);
+            x.view().inject(this);
+            llType.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    selectType();
+                }
+            });
+            btnSubmit.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    claim();
+                }
+            });
+        } catch (Exception e) {
+            ExceptionHandler.handleException(e);
+        }
+
     }
 
     @Override
