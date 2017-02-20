@@ -8,13 +8,12 @@
     android:orientation="vertical"
     android:background="@color/mine_background">
     <android.support.v7.widget.Toolbar
-        android:id="@+id/activity_main_toolbar"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:minHeight="?attr/actionBarSize"
         android:background="?attr/colorPrimary">
         <ImageView
-            android:id="@+id/iv_login_back"
+            android:id="@+id/iv_setting_back"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:src="@mipmap/arrow_left_white"/>

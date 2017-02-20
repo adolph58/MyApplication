@@ -52,7 +52,7 @@
         -->
         <activity
             android:name=".activity.SplashActivity"
-            android:configChanges="orientation|screenSize|keyboardHidden"></activity>
+            android:configChanges="orientation|screenSize|keyboardHidden" />
         <activity
             android:name=".activity.LoginActivity"
             android:configChanges="orientation|screenSize|keyboardHidden" />
@@ -69,6 +69,7 @@
         <activity android:name=".activity.ClaimActivity" />
         <activity android:name=".activity.AccountActivity" />
         <activity android:name=".activity.SettingActivity" />
+        <activity android:name=".activity.UserInfoActivity"></activity>
     </application>
 
 </manifest>
