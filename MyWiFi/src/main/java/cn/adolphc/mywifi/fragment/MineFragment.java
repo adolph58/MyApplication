@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import org.xutils.view.annotation.ViewInject;
 import org.xutils.x;
@@ -14,6 +15,7 @@ import org.xutils.x;
 import cn.adolphc.mywifi.R;
 import cn.adolphc.mywifi.activity.AccountActivity;
 import cn.adolphc.mywifi.activity.SettingActivity;
+import cn.adolphc.mywifi.activity.UserInfoActivity;
 
 
 public class MineFragment extends Fragment{
@@ -29,6 +31,8 @@ public class MineFragment extends Fragment{
 	private View help;
 	@ViewInject(R.id.rl_mine_setting)
 	private View setting;
+	@ViewInject(R.id.civ_mine_avatar)
+	private ImageView avatar;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_mine, container,false);
@@ -57,6 +61,13 @@ public class MineFragment extends Fragment{
 	 * 设置监听
 	 */
 	private void setListener() {
+		avatar.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Intent intent = new Intent(getActivity(), UserInfoActivity.class);
+				startActivity(intent);
+			}
+		});
 		activity.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -95,6 +106,7 @@ public class MineFragment extends Fragment{
 				startActivity(intent);
 			}
 		});
+
 
 	}
 

@@ -1,11 +1,11 @@
 package cn.adolphc.mywifi.activity;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import org.xutils.view.annotation.ViewInject;
 import org.xutils.x;
@@ -18,8 +18,10 @@ public class ClaimActivity extends BaseActivity {
 
     @ViewInject(R.id.et_claim_hotspot_pwd)
     private EditText etPwd;
-    @ViewInject(R.id.et_claim_hotspot_type)
-    private EditText etType;
+    @ViewInject(R.id.et_claim_unit_price)
+    private EditText etUnitPrice;
+    @ViewInject(R.id.tv_claim_hotspot_type)
+    private TextView tvType;
     @ViewInject(R.id.btn_claim_hotspot_submit)
     private Button btnSubmit;
     @ViewInject(R.id.ll_claim_hotspot_type)
@@ -60,14 +62,14 @@ public class ClaimActivity extends BaseActivity {
 
     private void claim() {
         String pwd = etPwd.getText().toString().trim();
-        String type = etType.getText().toString().trim();
+        String unitPrice = etUnitPrice.getText().toString().trim();
     }
 
     private void selectType() {
         ClaimTypeDialog typeDialog = new ClaimTypeDialog(this, new ClaimTypeDialog.OnCustomDialogListener() {
             @Override
             public void back(String type) {
-                etType.setText(type);
+                tvType.setText(type);
             }
         });
         typeDialog.show();

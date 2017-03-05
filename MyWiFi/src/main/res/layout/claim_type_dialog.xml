@@ -11,18 +11,31 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:text="个人" />
+        android:text="个人"
+        android:background="@color/powderblue"
+        android:layout_marginTop="@dimen/com_5dp"
+        android:layout_marginRight="@dimen/com_5dp"
+        android:layout_marginLeft="@dimen/com_5dp"/>
 
     <Button
         android:id="@+id/btn_wifi_type_merchant"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:text="商家" />"
+        android:text="商家"
+        android:background="@color/powderblue"
+        android:layout_marginTop="@dimen/com_5dp"
+        android:layout_marginRight="@dimen/com_5dp"
+        android:layout_marginLeft="@dimen/com_5dp"/>"
     <Button
         android:id="@+id/btn_wifi_type_company"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:text="单位" />"
+        android:text="单位"
+        android:background="@color/powderblue"
+        android:layout_marginTop="@dimen/com_5dp"
+        android:layout_marginBottom="@dimen/com_5dp"
+        android:layout_marginRight="@dimen/com_5dp"
+        android:layout_marginLeft="@dimen/com_5dp"/>"
 </LinearLayout>

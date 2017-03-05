@@ -22,17 +22,17 @@
                 android:layout_height="@dimen/com_200dp"
                 android:background="@color/main_color_light">
                 <cn.adolphc.mywifi.ui.CircleImageView
-                    android:id="@+id/iv_mine_head_image"
+                    android:id="@+id/civ_mine_avatar"
                     android:layout_width="@dimen/com_80dp"
                     android:layout_height="@dimen/com_80dp"
                     android:layout_centerInParent="true"
-                    android:src="@mipmap/default_avatar" />
+                    android:src="@mipmap/icon_avatar_dark"/>
                 <TextView
                     android:id="@+id/tv_mine_nick_name"
                     android:layout_width="wrap_content"
                     android:layout_height="@dimen/com_20dp"
                     android:gravity="center"
-                    android:layout_below="@+id/iv_mine_head_image"
+                    android:layout_below="@+id/civ_mine_avatar"
                     android:layout_marginTop="@dimen/margin_small"
                     android:layout_centerHorizontal="true"
                     android:text="昵称"

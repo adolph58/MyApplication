@@ -1,6 +1,5 @@
 package cn.adolphc.mywifi.activity;
 
-import android.app.Activity;
 import android.os.Bundle;
 
 import cn.adolphc.mywifi.R;

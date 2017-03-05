@@ -45,7 +45,7 @@
             android:layout_height="@dimen/com_80dp"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:src="@mipmap/default_avatar"
+            android:src="@mipmap/icon_avatar_light"
             android:layout_marginRight="@dimen/margin_large"/>
     </RelativeLayout>
     <RelativeLayout

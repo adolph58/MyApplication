@@ -20,6 +20,7 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.zhy.m.permission.MPermissions;
@@ -42,6 +43,8 @@ public class WifiFragment extends Fragment{
 	//private static final int REQUECT_CODE_LOCATION = 1;  //申请位置权限返回码
 	@ViewInject(R.id.lv_wifi_list)
 	private ListView wifiListView;
+	@ViewInject(R.id.tv_wifi_linked)
+	private TextView tvLinked;
 	//private WifiManager wifiManager;  //声明管理对象
 	//private WifiInfo wifiInfo;  //Wifi信息
 	private WifiListAdapter adapter;

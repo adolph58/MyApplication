@@ -1,5 +1,6 @@
 package cn.adolphc.mywifi.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -13,6 +14,7 @@ import org.xutils.view.annotation.ViewInject;
 import org.xutils.x;
 
 import cn.adolphc.mywifi.R;
+import cn.adolphc.mywifi.activity.ClaimActivity;
 
 public class HotspotFragment extends Fragment{
 	@ViewInject(R.id.tv_linked_hotspot_ssid)
@@ -28,6 +30,7 @@ public class HotspotFragment extends Fragment{
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_hotspot, container,false);
 		x.view().inject(this,view);
+		setListener();
 		return view;
     }
 
@@ -40,18 +43,14 @@ public class HotspotFragment extends Fragment{
 	 * 设置监听
 	 */
 	private void setListener() {
-		InnerOnClickListener listener = new InnerOnClickListener();
+		btnClaim.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Intent intent = new Intent(getActivity(),ClaimActivity.class);
+				startActivity(intent);
+			}
+		});
 
 	}
 
-	/**
-	 * 内部监听类
-	 */
-	class InnerOnClickListener implements OnClickListener{
-
-		@Override
-		public void onClick(View v) {
-
-		}
-	}
 }

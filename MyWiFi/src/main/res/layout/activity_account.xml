@@ -53,7 +53,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="2"
-            android:text="xx元"
+            android:text="1067.58元"
             android:textSize="@dimen/text_size_normal"
             android:gravity="left|center_vertical"
             android:padding="@dimen/padding_small"/>
@@ -94,7 +94,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="2"
-            android:text="xx元"
+            android:text="102.35元"
             android:textSize="@dimen/text_size_normal"
             android:gravity="left|center_vertical"
             android:padding="@dimen/padding_small"/>
@@ -135,7 +135,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="2"
-            android:text="xx元"
+            android:text="259.67元"
             android:textSize="@dimen/text_size_normal"
             android:gravity="left|center_vertical"
             android:padding="@dimen/padding_small"/>

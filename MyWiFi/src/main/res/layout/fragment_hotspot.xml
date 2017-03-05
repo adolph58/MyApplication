@@ -23,7 +23,7 @@
             android:id="@+id/tv_linked_hotspot_ssid"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
-            android:text="Wifi的SSID"
+            android:text="Tenda_Adolph"
             android:textSize="16sp"
             android:paddingTop="15dp"/>
 
@@ -31,7 +31,7 @@
             android:id="@+id/tv_linked_hotspot_bssid"
             android:layout_width="wrap_content"
             android:layout_height="30dp"
-            android:text="Wifi的BSSID"
+            android:text="c8:3a:35:3d:da:b8"
             android:textSize="12sp"
             android:paddingTop="5dp"
             android:layout_alignParentBottom="true"
@@ -62,7 +62,7 @@
             android:id="@+id/tv_who_belongs_to"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="属于我"
+            android:text="无人认领"
             android:textSize="14sp"
             android:textColor="@color/main_color_light"
             android:layout_centerVertical="true"/>
@@ -73,7 +73,7 @@
             android:background="@drawable/button_shape"
             android:layout_alignParentRight="true"
             android:textColor="@color/white"
-            android:text="认领热点"
+            android:text="认领该热点"
             />
     </RelativeLayout>
 
