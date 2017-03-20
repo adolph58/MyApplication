@@ -23,6 +23,7 @@ public class User implements Serializable  {
     private String nickname;
     private String gender;
     private String phoneNumber;
+    private String signature;
     private String registerDate;
     private String token;
     private String tokenDate;
@@ -87,6 +88,14 @@ public class User implements Serializable  {
         this.phoneNumber = phoneNumber;
     }
 
+    public String getSignature() {
+        return signature;
+    }
+
+    public void setSignature(String signature) {
+        this.signature = signature;
+    }
+
     public String getRegisterDate() {
         return registerDate;
     }
@@ -113,11 +122,18 @@ public class User implements Serializable  {
 
     @Override
     public String toString() {
-        return "User [id=" + id + ", username=" + username + ", password="
-                + password + ", nickname=" + nickname + ", gender=" + gender
-                + ", phoneNumber=" + phoneNumber + ", registerDate="
-                + registerDate + ", token=" + token + ", tokenDate="
-                + tokenDate + "]";
+        return "User{" +
+                "username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", nickname='" + nickname + '\'' +
+                ", gender='" + gender + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", signature='" + signature + '\'' +
+                ", registerDate='" + registerDate + '\'' +
+                ", token='" + token + '\'' +
+                ", tokenDate='" + tokenDate + '\'' +
+                ", id=" + id +
+                '}';
     }
 
     /**
