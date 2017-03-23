@@ -27,6 +27,7 @@
             android:layout_gravity="center"/>
     </android.support.v7.widget.Toolbar>
     <RelativeLayout
+        android:id="@+id/rl_user_info_avatar"
         android:layout_width="match_parent"
         android:layout_height="@dimen/com_100dp"
         android:layout_marginTop="@dimen/margin_large"
@@ -49,6 +50,7 @@
             android:layout_marginRight="@dimen/margin_large"/>
     </RelativeLayout>
     <RelativeLayout
+        android:id="@+id/rl_user_info_nickname"
         android:layout_width="match_parent"
         android:layout_height="@dimen/row_large"
         android:layout_marginTop="@dimen/margin_large"
@@ -66,13 +68,14 @@
             android:id="@+id/tv_user_info_nickname"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="张三"
+            android:text="请设置"
             android:textSize="@dimen/text_size_normal"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_marginRight="@dimen/margin_large"/>
     </RelativeLayout>
     <RelativeLayout
+        android:id="@+id/rl_user_info_gender"
         android:layout_width="match_parent"
         android:layout_height="@dimen/row_large"
         android:background="@color/white"
@@ -89,13 +92,14 @@
             android:id="@+id/tv_user_info_gender"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="男"
+            android:text="请设置"
             android:textSize="@dimen/text_size_normal"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_marginRight="@dimen/margin_large"/>
     </RelativeLayout>
     <RelativeLayout
+        android:id="@+id/rl_user_info_phone_number"
         android:layout_width="match_parent"
         android:layout_height="@dimen/row_large"
         android:background="@color/white"
@@ -112,13 +116,14 @@
             android:id="@+id/tv_user_info_phone_number"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="18688888888"
+            android:text="请设置"
             android:textSize="@dimen/text_size_normal"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_marginRight="@dimen/margin_large"/>
     </RelativeLayout>
     <RelativeLayout
+        android:id="@+id/rl_user_info_signature"
         android:layout_width="match_parent"
         android:layout_height="@dimen/row_large"
         android:background="@color/white">
@@ -134,7 +139,7 @@
             android:id="@+id/tv_user_info_signature"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="我爱WiFi"
+            android:text="请设置"
             android:textSize="@dimen/text_size_normal"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"

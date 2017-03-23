@@ -8,10 +8,8 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
-import java.util.Arrays;
 
-import android.os.Environment;
-
+import cn.adolphc.mywifi.util.FilePathUtils;
 import cn.adolphc.mywifi.util.GlobalConsts;
 
 public class User implements Serializable  {
@@ -20,6 +18,7 @@ public class User implements Serializable  {
     private String username;
     private String password;
     private byte[] avatar;
+    private String avatarUrl;
     private String nickname;
     private String gender;
     private String phoneNumber;
@@ -62,6 +61,14 @@ public class User implements Serializable  {
 
     public void setAvatar(byte[] avatar) {
         this.avatar = avatar;
+    }
+
+    public String getAvatarUrl() {
+        return avatarUrl;
+    }
+
+    public void setAvatarUrl(String avatarUrl) {
+        this.avatarUrl = avatarUrl;
     }
 
     public String getNickname() {
@@ -123,8 +130,9 @@ public class User implements Serializable  {
     @Override
     public String toString() {
         return "User{" +
-                "username='" + username + '\'' +
-                ", password='" + password + '\'' +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", avatarUrl='" + avatarUrl + '\'' +
                 ", nickname='" + nickname + '\'' +
                 ", gender='" + gender + '\'' +
                 ", phoneNumber='" + phoneNumber + '\'' +
@@ -132,7 +140,6 @@ public class User implements Serializable  {
                 ", registerDate='" + registerDate + '\'' +
                 ", token='" + token + '\'' +
                 ", tokenDate='" + tokenDate + '\'' +
-                ", id=" + id +
                 '}';
     }
 
@@ -143,8 +150,7 @@ public class User implements Serializable  {
      */
     public static User getCurrentUser() {
         try {
-            File file = new File(Environment.getExternalStorageDirectory().getAbsolutePath(),
-                    GlobalConsts.USER_INFO_NAME);
+            File file = new File(FilePathUtils.getDiskFilesDir(), GlobalConsts.USER_INFO_NAME);
             ObjectInputStream ois = new ObjectInputStream(new FileInputStream(file));
             User user = (User)ois.readObject();
             if (user == null) {
@@ -164,8 +170,7 @@ public class User implements Serializable  {
      */
     public static void saveUser(User user) {
         try {
-            File file = new File(Environment.getExternalStorageDirectory().getAbsolutePath(),
-                    GlobalConsts.USER_INFO_NAME);
+            File file = new File(FilePathUtils.getDiskFilesDir(), GlobalConsts.USER_INFO_NAME);
             ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(file));
             oos.writeObject(user);
             oos.flush();

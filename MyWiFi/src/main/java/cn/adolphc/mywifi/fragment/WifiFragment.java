@@ -1,39 +1,26 @@
 package cn.adolphc.mywifi.fragment;
 
-import android.Manifest;
-import android.content.Context;
-import android.content.pm.PackageManager;
 import android.net.wifi.ScanResult;
 import android.net.wifi.WifiConfiguration;
-import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Message;
-import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import com.zhy.m.permission.MPermissions;
 
 import org.xutils.view.annotation.ViewInject;
 import org.xutils.x;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import cn.adolphc.mywifi.R;
 import cn.adolphc.mywifi.adapter.WifiListAdapter;
-import cn.adolphc.mywifi.ui.WifiPswDialog;
+import cn.adolphc.mywifi.ui.LinkWifiDialog;
 import cn.adolphc.mywifi.util.LogUtil;
 import cn.adolphc.mywifi.util.WifiUtils;
 
@@ -128,8 +115,35 @@ public class WifiFragment extends Fragment{
 	 */
 	private void setListener() {
 		//InnerOnClickListener listener = new InnerOnClickListener();
-		ListOnItemClickListener wifiListListener = new ListOnItemClickListener();
-		wifiListView.setOnItemClickListener(wifiListListener);
+//		ListOnItemClickListener wifiListListener = new ListOnItemClickListener();
+//		wifiListView.setOnItemClickListener(wifiListListener);
+		wifiListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+				LinkWifiDialog dialog = new LinkWifiDialog(getActivity());
+				dialog.show();
+//				LinkWifiDialog dialog = new LinkWifiDialog(getActivity(), R.style.DialogStyle);
+//			    dialog.show();
+//				LinearLayout linearLayout = new LinearLayout(getActivity());
+//				TextView textView = new TextView(getActivity());
+//				textView.setText("单价:0.002元/M  2.048元/G");
+//				textView.setTextColor(Color.RED);
+//				//textView.setLayoutParams(new RelativeLayout.LayoutParams(30, 300));
+//				textView.setHeight(45);
+//				linearLayout.addView(textView);
+//				TextView view1 = new TextView(getActivity());
+//				view1.setHeight(1);
+//				linearLayout.addView(view1);
+//				AlertDialog.Builder build = new AlertDialog.Builder(getActivity());
+//				build.setTitle("Tenda_Adolph");
+//				build.setView(linearLayout);
+//				//build.setMessage("单价:0.002元/M  2.048元/G");
+//				build.setPositiveButton("取消",null);
+//				build.setNegativeButton("连接",null);
+//				build.show();
+
+			}
+		});
 	}
 
 	/**
@@ -179,56 +193,66 @@ public class WifiFragment extends Fragment{
 		}
 	}*/
 
+
 	/**
 	 * ListView Item 点击事件监听
 	 */
-	class ListOnItemClickListener implements AdapterView.OnItemClickListener {
-		String wifiItemSSID = null;
-		private View selectedItem;
-		@Override
-		public void onItemClick(AdapterView<?> parent, View view, int position,
-								long id) {
-			LogUtil.i("ListOnItemClickListener","start");
-			selectedItem = view;
-			view.setBackgroundResource(R.color.gray);//点击的Item项背景设置
-			ScanResult wifiItem = scanResultList.get(position);//获得选中的设备
-			wifiItemSSID = wifiItem.SSID;
-			//String []ItemValue = wifiItem.split("--");
-			//wifiItemSSID = ItemValue[0];
-			LogUtil.i("ListOnItemClickListener",wifiItemSSID);
-			int wifiItemId = localWifiUtils.IsConfiguration("\""+wifiItemSSID+"\"");
-			LogUtil.i("ListOnItemClickListener",String.valueOf(wifiItemId));
-			if(wifiItemId != -1){
-				if(localWifiUtils.ConnectWifi(wifiItemId)){//连接指定WIFI
-					view.setBackgroundResource(R.color.green);
-				}
-			}
-			else{//没有配置好信息，配置
-				WifiPswDialog pswDialog = new WifiPswDialog(getActivity(),new WifiPswDialog.OnCustomDialogListener() {
-					@Override
-					public void back(String str) {
-						wifiPassword = str;
-						if(wifiPassword != null){
-							int netId = localWifiUtils.AddWifiConfig(scanResultList,wifiItemSSID, wifiPassword);
-							LogUtil.i("WifiPswDialog",String.valueOf(netId));
-							if(netId != -1){
-								localWifiUtils.getConfiguration();//添加了配置信息，要重新得到配置信息
-								if(localWifiUtils.ConnectWifi(netId)){
-									selectedItem.setBackgroundResource(R.color.green);
-								}
-							}
-							else{
-								Toast.makeText(getActivity(), "网络连接错误", Toast.LENGTH_SHORT).show();
-								selectedItem.setBackgroundResource(R.color.burlywood);
-							}
-						}
-						else{
-							selectedItem.setBackgroundResource(R.color.burlywood);
-						}
-					}
-				});
-				pswDialog.show();
-			}
-		}
-	}
+//	class ListOnItemClickListener implements AdapterView.OnItemClickListener {
+////		String wifiItemSSID = null;
+////		private View selectedItem;
+//		@Override
+//		public void onItemClick(AdapterView<?> parent, View view, int position,
+//								long id) {
+//
+//			LinkWifiDialog dialog = new LinkWifiDialog(getActivity());
+//			dialog.show();
+
+
+
+
+
+//			LogUtil.i("ListOnItemClickListener","start");
+//			selectedItem = view;
+//			view.setBackgroundResource(R.color.gray);//点击的Item项背景设置
+//			ScanResult wifiItem = scanResultList.get(position);//获得选中的设备
+//			wifiItemSSID = wifiItem.SSID;
+//			//String []ItemValue = wifiItem.split("--");
+//			//wifiItemSSID = ItemValue[0];
+//			LogUtil.i("ListOnItemClickListener",wifiItemSSID);
+//			int wifiItemId = localWifiUtils.IsConfiguration("\""+wifiItemSSID+"\"");
+//			LogUtil.i("ListOnItemClickListener",String.valueOf(wifiItemId));
+//			if(wifiItemId != -1){
+//				if(localWifiUtils.ConnectWifi(wifiItemId)){//连接指定WIFI
+//					view.setBackgroundResource(R.color.green);
+//				}
+//			}
+//			else{//没有配置好信息，配置
+//
+//				WifiPswDialog pswDialog = new WifiPswDialog(getActivity(),new WifiPswDialog.OnCustomDialogListener() {
+//					@Override
+//					public void back(String str) {
+//						wifiPassword = str;
+//						if(wifiPassword != null){
+//							int netId = localWifiUtils.AddWifiConfig(scanResultList,wifiItemSSID, wifiPassword);
+//							LogUtil.i("WifiPswDialog",String.valueOf(netId));
+//							if(netId != -1){
+//								localWifiUtils.getConfiguration();//添加了配置信息，要重新得到配置信息
+//								if(localWifiUtils.ConnectWifi(netId)){
+//									selectedItem.setBackgroundResource(R.color.green);
+//								}
+//							}
+//							else{
+//								Toast.makeText(getActivity(), "网络连接错误", Toast.LENGTH_SHORT).show();
+//								selectedItem.setBackgroundResource(R.color.burlywood);
+//							}
+//						}
+//						else{
+//							selectedItem.setBackgroundResource(R.color.burlywood);
+//						}
+//					}
+//				});
+//				pswDialog.show();
+//			}
+//		}
+//	}
 }

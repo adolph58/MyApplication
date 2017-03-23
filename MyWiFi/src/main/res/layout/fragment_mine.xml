@@ -28,7 +28,7 @@
                     android:layout_centerInParent="true"
                     android:src="@mipmap/icon_avatar_dark"/>
                 <TextView
-                    android:id="@+id/tv_mine_nick_name"
+                    android:id="@+id/tv_mine_nickname"
                     android:layout_width="wrap_content"
                     android:layout_height="@dimen/com_20dp"
                     android:gravity="center"

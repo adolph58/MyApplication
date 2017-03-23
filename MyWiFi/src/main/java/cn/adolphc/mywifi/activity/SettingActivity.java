@@ -1,14 +1,19 @@
 package cn.adolphc.mywifi.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Environment;
 import android.view.View;
 import android.widget.TextView;
 
 import org.xutils.view.annotation.ViewInject;
 import org.xutils.x;
 
+import java.io.File;
+
 import cn.adolphc.mywifi.R;
 import cn.adolphc.mywifi.util.ExceptionHandler;
+import cn.adolphc.mywifi.util.GlobalConsts;
 
 public class SettingActivity extends BaseActivity {
     @ViewInject(R.id.tv_setting_suggest)
@@ -58,12 +63,21 @@ public class SettingActivity extends BaseActivity {
             exit.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-
+                    logout();
                 }
             });
         } catch (Exception e) {
             ExceptionHandler.handleException(e);
         }
+    }
+
+    private void logout() {
+        File file = new File(Environment.getExternalStorageDirectory() + "/MyWifi/user/",
+                GlobalConsts.USER_INFO_NAME);
+        file.delete();
+        Intent intent = new Intent(SettingActivity.this,LoginActivity.class);
+        startActivity(intent);
+        SettingActivity.this.finish();
     }
 
     @Override

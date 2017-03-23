@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_nickname"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="cn.adolphc.mywifi.activity.UserInfoActivity"
+    android:orientation="vertical"
+    android:background="@color/white">
+    <android.support.v7.widget.Toolbar
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:minHeight="?attr/actionBarSize"
+        android:background="?attr/colorPrimary">
+        <ImageView
+            android:id="@+id/iv_setting_nickname_back"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@mipmap/arrow_left_white"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="昵称设置"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/text_size_xlarge"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"/>
+    </android.support.v7.widget.Toolbar>
+    <EditText
+        android:id="@+id/et_setting_nickname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_large"/>
+    <Button
+        android:id="@+id/btn_setting_nickname"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/row_normal"
+        android:layout_margin="@dimen/margin_large"
+        android:background="@drawable/button_shape"
+        android:text="保存"
+        android:textSize="@dimen/text_size_large"
+        android:textColor="@color/white"/>
+
+</LinearLayout>
+

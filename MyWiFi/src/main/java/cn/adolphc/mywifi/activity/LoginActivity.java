@@ -11,10 +11,12 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import cn.adolphc.mywifi.MyApplication;
 import cn.adolphc.mywifi.R;
 import cn.adolphc.mywifi.model.AsyncCallback;
 import cn.adolphc.mywifi.model.UserModel;
 import cn.adolphc.mywifi.util.ExceptionHandler;
+import cn.adolphc.mywifi.util.Tools;
 
 public class LoginActivity extends BaseActivity {
 
@@ -57,7 +59,7 @@ public class LoginActivity extends BaseActivity {
             tvFogetPwd.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Toast.makeText(LoginActivity.this, "敬请期待！", Toast.LENGTH_SHORT).show();
+                    Tools.showToast(LoginActivity.this, "敬请期待！");
                 }
             });
             ivBack.setOnClickListener(new View.OnClickListener() {
@@ -84,9 +86,9 @@ public class LoginActivity extends BaseActivity {
         String username = etUsername.getText().toString().trim();
         String password = etPwd.getText().toString().trim();
         if ("".equals(username)) {
-            Toast.makeText(LoginActivity.this, "用户名不能为空", Toast.LENGTH_SHORT).show();
+            Tools.showToast(LoginActivity.this, "用户名不能为空");
         } else if ("".equals(password)) {
-            Toast.makeText(LoginActivity.this, "密码不能为空", Toast.LENGTH_SHORT).show();
+            Tools.showToast(LoginActivity.this, "密码不能为空");
         } else if (username != null && password != null) {
             UserModel model = new UserModel();
             model.login(username,password,new AsyncCallback(){
@@ -100,7 +102,7 @@ public class LoginActivity extends BaseActivity {
 
                 @Override
                 public void onError(Object error) {
-                    Toast.makeText(LoginActivity.this, error.toString(), Toast.LENGTH_SHORT).show();
+                    Tools.showToast(LoginActivity.this, error.toString());
                 }
             });
         }
@@ -110,6 +112,6 @@ public class LoginActivity extends BaseActivity {
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-        finish();
+        MyApplication.getContext().finish();
     }
 }

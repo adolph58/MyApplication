@@ -14,6 +14,7 @@ import cn.adolphc.mywifi.R;
 import cn.adolphc.mywifi.model.AsyncCallback;
 import cn.adolphc.mywifi.model.UserModel;
 import cn.adolphc.mywifi.util.ExceptionHandler;
+import cn.adolphc.mywifi.util.Tools;
 
 public class RegistActivity extends BaseActivity {
 
@@ -66,26 +67,34 @@ public class RegistActivity extends BaseActivity {
      */
     private void regist() {
         String username = etUsername.getText().toString().trim();
+        if (username.length() > 10) {
+            Tools.showToast(RegistActivity.this, "用户名不能大于10个字符");
+            return;
+        }
         String password = etPwd.getText().toString().trim();
+        if (password.length() > 64) {
+            Tools.showToast(RegistActivity.this, "密码不能大于64个字符");
+            return;
+        }
         String rePwd = etRePwd.getText().toString().trim();
         if ("".equals(username)) {
-            Toast.makeText(RegistActivity.this, "用户名不能为空", Toast.LENGTH_SHORT).show();
+            Tools.showToast(RegistActivity.this, "用户名不能为空");
         } else if ("".equals(password)||"".equals(rePwd)) {
-            Toast.makeText(RegistActivity.this, "密码不能为空", Toast.LENGTH_SHORT).show();
+            Tools.showToast(RegistActivity.this, "密码不能为空");
         } else if(!password.equals(rePwd)) {
-            Toast.makeText(RegistActivity.this, "两次输入密码不一致，请重新输入！", Toast.LENGTH_SHORT).show();
+            Tools.showToast(RegistActivity.this, "两次输入密码不一致，请重新输入！");
         } else if (username != null && password != null && rePwd != null && password.equals(rePwd)) {
             UserModel model = new UserModel();
             model.regist(username, password, new AsyncCallback() {
                 @Override
                 public void onSuccess(Object success) {
-                    Toast.makeText(RegistActivity.this, "注册成功！", Toast.LENGTH_SHORT).show();
+                    Tools.showToast(RegistActivity.this, "注册成功！");
                     RegistActivity.this.finish();
                 }
 
                 @Override
                 public void onError(Object error) {
-                    Toast.makeText(RegistActivity.this, error.toString(), Toast.LENGTH_SHORT).show();
+                    Tools.showToast(RegistActivity.this, error.toString());
                 }
             });
 

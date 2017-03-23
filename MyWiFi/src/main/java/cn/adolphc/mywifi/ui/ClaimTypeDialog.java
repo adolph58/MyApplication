@@ -30,7 +30,7 @@ public class ClaimTypeDialog extends Dialog{
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.claim_type_dialog);
+		setContentView(R.layout.dialog_claim_type);
 		btnPersonal = (Button) findViewById(R.id.btn_wifi_type_personal);
 		btnMerchant = (Button) findViewById(R.id.btn_wifi_type_merchant);
 		btnCompany = (Button) findViewById(R.id.btn_wifi_type_company);

@@ -2,19 +2,29 @@ package cn.adolphc.mywifi.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Environment;
 import android.view.animation.Animation;
 import android.view.animation.Animation.AnimationListener;
 import android.view.animation.AnimationUtils;
 import android.widget.RelativeLayout;
+
+import java.io.File;
+
 import cn.adolphc.mywifi.R;
 import cn.adolphc.mywifi.entity.User;
 import cn.adolphc.mywifi.util.ExceptionHandler;
+import cn.adolphc.mywifi.util.FilePathUtils;
 
 public class SplashActivity extends BaseActivity {
 	RelativeLayout animContainer;
 
 	@Override
 	protected void initVariables() {
+		String path = FilePathUtils.getDiskFilesDir() + "/images";
+		File fileDir = new File(path);
+		if (!fileDir.exists()) {
+			fileDir.mkdirs();// 如果文件夹不存在创建文件夹
+		}
 
 	}
 

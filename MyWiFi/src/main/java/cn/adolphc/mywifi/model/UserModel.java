@@ -99,4 +99,38 @@ public class UserModel {
         queue.add(request);
     }
 
+    public void update(final User user, final AsyncCallback callback) {
+        String url = GlobalConsts.URL_USER_UPDATE_USER_INFO;
+        StringRequest request = new StringRequest(Request.Method.POST, url, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                try {
+                    JSONObject jsonObject = new JSONObject(response);
+                    if(jsonObject.getInt("code")==GlobalConsts.RESPONSE_CODE_SUCCESS) {
+                        User user = JSON.parseObject(jsonObject.getString("data"), User.class);
+                        User.saveUser(user);
+                        callback.onSuccess(user);
+                    } else {
+                        callback.onError(jsonObject.getString("msg"));
+                    }
+                } catch (Exception e) {
+                    ExceptionHandler.handleException(e);
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError volleyError) {
+                callback.onError(volleyError);
+            }
+        }) {
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> map = new HashMap<>();
+                map.put("user", com.alibaba.fastjson.JSONObject.toJSONString(user));
+                return map;
+            }
+        };
+        queue.add(request);
+    }
+
 }

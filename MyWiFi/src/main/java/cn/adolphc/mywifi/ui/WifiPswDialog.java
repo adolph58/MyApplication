@@ -15,6 +15,9 @@ public class WifiPswDialog extends Dialog{
 	private Button okButton;
 	private EditText pswEdit;
 	private OnCustomDialogListener customDialogListener;
+	public WifiPswDialog(Context context, int themeResId) {
+		super(context, themeResId);
+	}
 	public WifiPswDialog(Context context,OnCustomDialogListener customListener) {
 		//OnCancelListener cancelListener) {
 		super(context);
@@ -29,13 +32,13 @@ public class WifiPswDialog extends Dialog{
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.wifi_config_dialog);
-		setTitle("请输入密码");
-		pswEdit = (EditText)findViewById(R.id.wifiDialogPsw);
-		cancelButton = (Button)findViewById(R.id.wifiDialogCancel);
-		okButton = (Button)findViewById(R.id.wifiDialogCertain);
-		cancelButton.setOnClickListener(buttonDialogListener);
-		okButton.setOnClickListener(buttonDialogListener);
+		setContentView(R.layout.dialog_wifi_config);
+		//setTitle("请输入密码");
+//		pswEdit = (EditText)findViewById(R.id.wifiDialogPsw);
+//		cancelButton = (Button)findViewById(R.id.wifiDialogCancel);
+//		okButton = (Button)findViewById(R.id.wifiDialogCertain);
+//		cancelButton.setOnClickListener(buttonDialogListener);
+//		okButton.setOnClickListener(buttonDialogListener);
 		
 	}
 	
@@ -43,7 +46,7 @@ public class WifiPswDialog extends Dialog{
 
 		@Override
 		public void onClick(View view) {
-			if(view.getId() == R.id.wifiDialogCancel){
+			if(view.getId() == R.id.btn_link_dialog_cancel){
 				pswEdit = null;
 				customDialogListener.back(null);
 				cancel();//自动调用dismiss();
