@@ -17,7 +17,7 @@ import java.io.File;
 
 /**
  * Apk下载
- * Created by Song on 2016/11/2.
+ * Created by dev on 2017/4/1.
  */
 public class DownloadApk {
 

@@ -10,7 +10,7 @@ import android.widget.Toast;
 import com.beijingtest.bjt.config.SystemParams;
 
 /**
- * Created by Song on 2016/11/2.
+ * Created by dev on 2017/4/1.
  */
 public class ApkInstallReceiver extends BroadcastReceiver {
 
