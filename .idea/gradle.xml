@@ -5,11 +5,11 @@
       <GradleProjectSettings>
         <option name="distributionType" value="LOCAL" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="gradleHome" value="D:\Android\Android Studio\gradle\gradle-2.14.1" />
+        <option name="gradleHome" value="D:\android_studio\studio\gradle\gradle-2.14.1" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/MyWiFi" />
+            <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/mylibrary" />
           </set>
         </option>

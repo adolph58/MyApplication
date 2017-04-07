@@ -1,0 +1,17 @@
+<resources>
+    <!--报表展示显示，销售管理显示，采样管理隐藏，审核审批显示-->
+    <string name="app_name">京诚检测</string>
+    <string name="tv_login_username">用户名：</string>
+    <string name="tv_login_password">密 码：</string>
+    <string name="bt_login">登录</string>
+    <string name="main_home_rb">销售</string>
+    <string name="main_data_rb">数据</string>
+    <string name="main_service_rb">审核</string>
+    <string name="dt_bt_camera">相机</string>
+    <string name="dt_bt_photo">相册</string>
+    <string name="dt_bt_uploading">上传</string>
+    <string name="ll_buyer_custo">公司名</string>
+    <string name="tv_buyer_chargeman">负责人：</string>
+    <string name="tv_buyer_adress">地 址：</string>
+    <string name="tv_buyer_username">拜访人：</string>
+</resources>

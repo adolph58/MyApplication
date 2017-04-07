@@ -1,0 +1,61 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.beijingtest.bjt.activity.MainActivity" >
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/activity_main_toolbar"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:minHeight="?attr/actionBarSize"
+        android:background="?attr/colorPrimary">
+        <TextView
+            android:id="@+id/tv_main_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="销售管理"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/text_size_xlarge"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"/>
+    </android.support.v7.widget.Toolbar>
+
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/activity_main_toolbar"
+        android:layout_above="@+id/ll_main_bottom"
+        android:background="#dddddd" >
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_main_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/bottom_navigation"
+        android:layout_alignParentBottom="true"
+        android:background="@color/alpha_gray"
+        android:orientation="horizontal"
+        android:padding="10dp" >
+
+        <ImageButton
+            android:id="@+id/ib_main_home"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:background="@null"
+            android:scaleType="centerInside"
+            android:src="@drawable/selector_button_home"/>
+
+        <ImageButton
+            android:id="@+id/ib_main_mine"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:background="@null"
+            android:scaleType="centerInside"
+            android:src="@drawable/selector_button_mine" />
+    </LinearLayout>
+
+</RelativeLayout>

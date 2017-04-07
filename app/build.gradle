@@ -1,0 +1,50 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.neenbedankt.android-apt'
+
+android {
+    signingConfigs {
+        config {
+            keyAlias '京诚检测'
+            keyPassword '123456'
+            storeFile file('D:/Android/bjt.jks')
+            storePassword '123456'
+        }
+    }
+    compileSdkVersion 23
+    buildToolsVersion "23.0.3"
+    defaultConfig {
+        applicationId "com.beijingtest.bjt"
+        minSdkVersion 14
+        targetSdkVersion 21
+        versionCode 1
+        versionName "1.004"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_7
+        targetCompatibility JavaVersion.VERSION_1_7
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    apt 'com.zhy:mpermission-compiler:1.0.0'
+    compile 'com.android.support:appcompat-v7:23.4.0'
+    testCompile 'junit:junit:4.12'
+    compile files('libs/xutils-3.3.2.jar')
+    compile files('libs/volley.jar')
+    compile 'com.alibaba:fastjson:1.2.20'
+    compile files('libs/mpermissions.jar')
+    compile project(':mylibrary')
+    compile 'com.alibaba:fastjson:1.2.23'
+    compile files('libs/BaiduLBS_Android.jar')
+}

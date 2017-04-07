@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_vist_log"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context="com.beijingtest.bjt.activity.VistLogActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize">
+
+        <ImageView
+            android:id="@+id/iv_vist_log_back"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@mipmap/arrow_left_white" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:text="拜访日志录入"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/text_size_xlarge" />
+    </android.support.v7.widget.Toolbar>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/row_normal"
+        android:layout_marginBottom="@dimen/margin_tiny"
+        android:layout_marginLeft="@dimen/margin_big"
+        android:layout_marginRight="@dimen/margin_big"
+        android:layout_marginTop="@dimen/margin_tiny">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:gravity="center"
+            android:text="客户名称："
+            android:textSize="@dimen/text_size_large"
+            android:id="@+id/textView" />
+
+        <EditText
+            android:id="@+id/et_vist_log_company"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:hint="请输入客户单位名称"
+            android:textSize="@dimen/text_size_normal"
+            android:lines="1"
+            android:textColorHint="@color/gray" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="@dimen/margin_big"
+        android:layout_marginRight="@dimen/margin_big"
+        android:background="#cccccc" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/com_5dp"
+        android:layout_marginBottom="@dimen/com_5dp"
+        android:layout_marginLeft="@dimen/margin_big"
+        android:text="拜访内容："/>
+    <EditText
+        android:id="@+id/et_vist_log_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/margin_big"
+        android:layout_marginRight="@dimen/margin_big"
+        android:maxLines="10"/>
+
+    <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="@dimen/row_normal"-->
+        <!--android:layout_marginBottom="@dimen/margin_tiny"-->
+        <!--android:layout_marginLeft="@dimen/margin_big"-->
+        <!--android:layout_marginRight="@dimen/margin_big"-->
+        <!--android:layout_marginTop="@dimen/margin_tiny">-->
+
+        <!--<TextView-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:layout_weight="2"-->
+            <!--android:gravity="center"-->
+            <!--android:text="客户姓名："-->
+            <!--android:textSize="@dimen/text_size_large" />-->
+
+        <!--<EditText-->
+            <!--android:id="@+id/et_vist_log_custom_name"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_weight="4"-->
+            <!--android:hint="请输入客户姓名"-->
+            <!--android:textSize="@dimen/text_size_normal"-->
+            <!--android:lines="1"-->
+            <!--android:textColorHint="@color/gray" />-->
+    <!--</LinearLayout>-->
+
+    <!--<TextView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="1dp"-->
+        <!--android:layout_marginLeft="@dimen/margin_big"-->
+        <!--android:layout_marginRight="@dimen/margin_big"-->
+        <!--android:background="#cccccc" />-->
+
+    <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="@dimen/row_normal"-->
+        <!--android:layout_marginBottom="@dimen/margin_tiny"-->
+        <!--android:layout_marginLeft="@dimen/margin_big"-->
+        <!--android:layout_marginRight="@dimen/margin_big"-->
+        <!--android:layout_marginTop="@dimen/margin_tiny">-->
+
+        <!--<TextView-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:layout_weight="2"-->
+            <!--android:gravity="center"-->
+            <!--android:text="联系方式："-->
+            <!--android:textSize="@dimen/text_size_large" />-->
+
+        <!--<EditText-->
+            <!--android:id="@+id/et_vist_log_contacts"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_weight="4"-->
+            <!--android:hint="请输入联系方式"-->
+            <!--android:inputType="number"-->
+            <!--android:textSize="@dimen/text_size_normal"-->
+            <!--android:lines="1"-->
+            <!--android:textColorHint="@color/gray" />-->
+    <!--</LinearLayout>-->
+
+    <!--<TextView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="1dp"-->
+        <!--android:layout_marginLeft="@dimen/margin_big"-->
+        <!--android:layout_marginRight="@dimen/margin_big"-->
+        <!--android:background="#cccccc" />-->
+
+    <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="@dimen/row_normal"-->
+        <!--android:layout_marginBottom="@dimen/margin_tiny"-->
+        <!--android:layout_marginLeft="@dimen/margin_big"-->
+        <!--android:layout_marginRight="@dimen/margin_big"-->
+        <!--android:layout_marginTop="@dimen/margin_tiny">-->
+
+        <!--<TextView-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:layout_weight="2"-->
+            <!--android:gravity="center"-->
+            <!--android:text="拜访事由："-->
+            <!--android:textSize="@dimen/text_size_large" />-->
+
+        <!--<EditText-->
+            <!--android:id="@+id/et_vist_log_reason"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_weight="4"-->
+            <!--android:hint="请输入拜访事由"-->
+            <!--android:textSize="@dimen/text_size_normal"-->
+            <!--android:textColorHint="@color/gray" />-->
+    <!--</LinearLayout>-->
+    <!--<TextView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="1dp"-->
+        <!--android:layout_marginLeft="@dimen/margin_big"-->
+        <!--android:layout_marginRight="@dimen/margin_big"-->
+        <!--android:background="#cccccc" />-->
+    <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="@dimen/row_normal"-->
+        <!--android:layout_marginBottom="@dimen/margin_tiny"-->
+        <!--android:layout_marginLeft="@dimen/margin_big"-->
+        <!--android:layout_marginRight="@dimen/margin_big"-->
+        <!--android:layout_marginTop="@dimen/margin_tiny">-->
+        <!--<TextView-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:layout_weight="2"-->
+            <!--android:gravity="center"-->
+            <!--android:text="客户类别："-->
+            <!--android:textSize="@dimen/text_size_large"/>-->
+        <!--<TextView-->
+            <!--android:id="@+id/tv_vist_log_type"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_weight="3"-->
+            <!--android:text="请选择客户类别"-->
+            <!--android:textSize="@dimen/text_size_normal"-->
+            <!--android:textColor="@color/gray"-->
+            <!--android:layout_marginLeft="@dimen/com_5dp"/>-->
+        <!--<ImageView-->
+            <!--android:id="@+id/iv_vist_log_choice_type"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:layout_weight="1"-->
+            <!--android:src="@mipmap/arrow_right_grey" />-->
+    <!--</LinearLayout>-->
+    <!--<TextView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="1dp"-->
+        <!--android:layout_marginLeft="@dimen/margin_big"-->
+        <!--android:layout_marginRight="@dimen/margin_big"-->
+        <!--android:background="#cccccc" />-->
+
+    <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="@dimen/row_normal"-->
+        <!--android:layout_marginBottom="@dimen/margin_tiny"-->
+        <!--android:layout_marginLeft="@dimen/margin_big"-->
+        <!--android:layout_marginRight="@dimen/margin_big"-->
+        <!--android:layout_marginTop="@dimen/margin_tiny">-->
+        <!--<TextView-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:layout_weight="2"-->
+            <!--android:gravity="center"-->
+            <!--android:text="客户级别："-->
+            <!--android:textSize="@dimen/text_size_large"/>-->
+        <!--<TextView-->
+            <!--android:id="@+id/tv_vist_log_level"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_weight="3"-->
+            <!--android:text="请选择客户级别"-->
+            <!--android:textSize="@dimen/text_size_normal"-->
+            <!--android:textColor="@color/gray"-->
+            <!--android:layout_marginLeft="@dimen/com_5dp"/>-->
+        <!--<ImageView-->
+            <!--android:id="@+id/iv_vist_log_choice_level"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:layout_weight="1"-->
+            <!--android:src="@mipmap/arrow_right_grey" />-->
+    <!--</LinearLayout>-->
+    <!--<TextView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="1dp"-->
+        <!--android:layout_marginLeft="@dimen/margin_big"-->
+        <!--android:layout_marginRight="@dimen/margin_big"-->
+        <!--android:background="#cccccc" />-->
+
+    <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="@dimen/row_normal"-->
+        <!--android:layout_marginBottom="@dimen/margin_tiny"-->
+        <!--android:layout_marginLeft="@dimen/margin_big"-->
+        <!--android:layout_marginRight="@dimen/margin_big"-->
+        <!--android:layout_marginTop="@dimen/margin_tiny">-->
+
+        <!--<TextView-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:layout_weight="2"-->
+            <!--android:gravity="center"-->
+            <!--android:text="上传图片："-->
+            <!--android:textSize="@dimen/text_size_large" />-->
+
+        <!--<Button-->
+            <!--android:id="@+id/btn_vist_log_choice_pic"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:layout_weight="4"-->
+            <!--android:background="@drawable/button_shape"-->
+            <!--android:gravity="center"-->
+            <!--android:text="选取图片"-->
+            <!--android:textColor="@color/white"-->
+            <!--android:textSize="@dimen/text_size_large" />-->
+    <!--</LinearLayout>-->
+
+    <!--<TextView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="1dp"-->
+        <!--android:layout_marginLeft="@dimen/margin_big"-->
+        <!--android:layout_marginRight="@dimen/margin_big"-->
+        <!--android:background="#cccccc" />-->
+
+    <Button
+        android:id="@+id/btn_vist_log_submit"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/row_normal"
+        android:layout_margin="@dimen/margin_large"
+        android:background="@drawable/button_shape"
+        android:text="提 交"
+        android:textColor="@color/white"
+        android:textSize="@dimen/text_size_large" />
+
+</LinearLayout>

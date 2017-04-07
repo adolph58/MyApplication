@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/row_large">
+
+    <TextView
+        android:id="@+id/tv_item_custom_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerVertical="true"
+        android:gravity="center"
+        android:textSize="@dimen/text_size_large"
+        android:text="广州市环保局"
+        android:layout_marginTop="@dimen/com_10dp"
+        android:layout_marginBottom="@dimen/com_10dp"/>
+</RelativeLayout>
