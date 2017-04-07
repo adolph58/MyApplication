@@ -81,15 +81,6 @@ public class DownloadApk {
                     title, "下载完成后点击打开", appName);
             SystemParams.getInstance().setLong(DownloadManager.EXTRA_DOWNLOAD_ID,id);
 
-//            new Thread(new Runnable() {
-//                @Override
-//                public void run() {
-//                    long id = DownLoadUtils.getInstance(context).download(url,
-//                            title, "下载完成后点击打开", appName);
-//                    SystemParams.getInstance().setLong(DownloadManager.EXTRA_DOWNLOAD_ID,id);
-//                }
-//            }).start();
-
         } else {
             Toast.makeText(context,"手机未安装SD卡，下载失败",Toast.LENGTH_LONG).show();
         }
