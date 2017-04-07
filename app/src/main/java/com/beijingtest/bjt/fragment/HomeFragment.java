@@ -9,7 +9,6 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 
@@ -18,20 +17,16 @@ import com.baidu.location.BDLocationListener;
 import com.baidu.location.LocationClient;
 import com.baidu.location.LocationClientOption;
 import com.beijingtest.bjt.R;
-import com.beijingtest.bjt.SimulationServer.SQLiteUtils;
 import com.beijingtest.bjt.SimulationServer.api.SalesAPI;
 import com.beijingtest.bjt.entity.Custom;
 import com.beijingtest.bjt.activity.VistLogActivity;
 import com.beijingtest.bjt.adapter.CustomAdapter;
 import com.beijingtest.bjt.entity.MyLocation;
-import com.beijingtest.bjt.util.DistanceByLocation;
 import com.beijingtest.bjt.util.LogUtil;
 
 import org.xutils.view.annotation.ViewInject;
 import org.xutils.x;
 
-import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 public class HomeFragment extends Fragment{
@@ -52,7 +47,6 @@ public class HomeFragment extends Fragment{
 			switch (msg.what) {
 				case SCAN_RESULT_LIST:
 					setAdapter();
-					//getLocation();
 					break;
 			}
 		}
@@ -124,69 +118,11 @@ public class HomeFragment extends Fragment{
 	private void setAdapter() {
 		LogUtil.i("客户列表数量：", customList.size());
 		LogUtil.i("客户列表：", customList.toString());
-
 		// && longitude != 4.9E-324 && longitude != 0.0
 		if (customList.size() > 0 ) {
-
 			adapter = new CustomAdapter(getActivity(),customList);
 			customListView.setAdapter(adapter);
-
-//			Iterator<Custom> it = customList.iterator();
-//			//List<Custom> newCustomList = new ArrayList<Custom>();
-//			while(it.hasNext()) {
-//				Custom custom = it.next();
-//				if(custom.getLongitude() > 0 ) {
-//					double distance = DistanceByLocation.getDistance(longitude,latitude, custom.getLongitude(), custom.getLatitude());
-//					LogUtil.i("距离：", distance);
-//					if (distance > 1) {
-//						//newCustomList.add(custom);
-//						it.remove();
-//					}
-//				}
-//			}
-//			LogUtil.i("客户列表数量：", customList.size());
-//			LogUtil.i("客户列表：", customList.toString());
-//			adapter = new CustomAdapter(getActivity(),customList);
-//			customListView.setAdapter(adapter);
-			//adapter.notifyDataSetChanged();
-//			if(customList.size() > 0) {
-//
-//			}
-
 		}
-
-
-
-//		if (myLocation.getLongitude() == 4.9E-324 || myLocation.getLongitude() == 0.0) {
-//			if (customList != null && customList.size() > 0) {
-//				adapter = new CustomAdapter(getActivity(),customList);
-//				customListView.setAdapter(adapter);
-//			}
-//		}
-		//else {
-//			if (customList != null && customList.size() > 0) {
-//				double myLongitude = myLocation.getLongitude();
-//				LogUtil.i("纬度：", myLongitude);
-//				double myLatitude = myLocation.getLatitude();
-//				LogUtil.i("经度：", myLatitude);
-//
-//				Iterator<Custom> it = customList.iterator();
-//				while(it.hasNext()) {
-//					Custom custom = it.next();
-//					if(custom.getLongitude() > 0 ) {
-//						double distance = DistanceByLocation.getDistance(myLongitude,myLatitude, custom.getLongitude(), custom.getLatitude());
-//						LogUtil.i("距离：", distance);
-//						if (distance > 1) {
-//							customList.remove(custom);
-//						}
-//					}
-//				}
-//				adapter = new CustomAdapter(getActivity(),customList);
-//				customListView.setAdapter(adapter);
-//			}
-		//}
-
-
 	}
 
 	/**
@@ -237,10 +173,6 @@ public class HomeFragment extends Fragment{
 		@Override
 		public void onReceiveLocation(BDLocation bdLocation) {
 			try {
-				//地址
-				//String address = bdLocation.getAddrStr();
-				//address = address.substring(2);
-				//LogUtil.i("地址->", address);
 				//经度
 				double longitude = bdLocation.getLongitude();
 				LogUtil.i("经度->", longitude);
@@ -249,38 +181,7 @@ public class HomeFragment extends Fragment{
 				LogUtil.i("纬度->", latitude);
 				myLocation.setLatitude(latitude);
 				myLocation.setLongitude(longitude);
-				//setAdapter();
 				loadList();
-
-//				if (customList != null && customList.size() > 0 && longitude != 4.9E-324 && longitude != 0.0  ) {
-//					//double myLongitude = myLocation.getLongitude();
-//					//LogUtil.i("纬度：", myLongitude);
-//					//double myLatitude = myLocation.getLatitude();
-//					//LogUtil.i("经度：", myLatitude);
-//
-//					Iterator<Custom> it = customList.iterator();
-//					//List<Custom> newCustomList = new ArrayList<Custom>();
-//					while(it.hasNext()) {
-//						Custom custom = it.next();
-//						if(custom.getLongitude() > 0 ) {
-//							double distance = DistanceByLocation.getDistance(longitude,latitude, custom.getLongitude(), custom.getLatitude());
-//							LogUtil.i("距离：", distance);
-//							if (distance > 1) {
-//								//newCustomList.add(custom);
-//								customList.remove(custom);
-//							}
-//						}
-//					}
-//					//adapter.notifyDataSetChanged();
-//					if(null != customList && customList.size() > 0) {
-//						adapter = new CustomAdapter(getActivity(),customList);
-//						customListView.setAdapter(adapter);
-//					}
-//
-//				}
-
-
-				//setAdapter();
 			} catch (Exception e) {
 			}
 		}
@@ -291,21 +192,9 @@ public class HomeFragment extends Fragment{
 		}
 	}
 
-	/**
-	 * ListView Item 点击事件监听
-	 */
-	class ListOnItemClickListener implements AdapterView.OnItemClickListener {
-		@Override
-		public void onItemClick(AdapterView<?> parent, View view, int position,
-								long id) {
-
-		}
-	}
-
 	@Override
 	public void onResume() {
 		super.onResume();
-		//loadList();
 		getLocation();
 	}
 }
