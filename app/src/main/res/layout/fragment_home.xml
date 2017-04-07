@@ -12,11 +12,35 @@
         android:gravity="center"
         android:textSize="@dimen/text_size_large"
         android:background="@color/gray"/>
+    <LinearLayout
+        android:id="@+id/ll_sales_search"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/row_big"
+        android:orientation="horizontal"
+        android:layout_below="@+id/tv_sales_title">
+        <EditText
+            android:id="@+id/et_sales_search"
+            android:layout_width="0dp"
+            android:layout_weight="7"
+            android:layout_height="match_parent"
+            android:hint="请输入搜索内容"
+            android:layout_marginLeft="@dimen/margin_small"
+            android:layout_marginRight="@dimen/margin_small"/>
+
+        <ImageView
+            android:id="@+id/iv_sales_search"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:src="@mipmap/icon_search"
+            android:padding="@dimen/com_10dp" />
+    </LinearLayout>
+
     <ListView
         android:id="@+id/lv_sales_custom_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/tv_sales_title"
+        android:layout_below="@+id/ll_sales_search"
         android:layout_above="@+id/btn_sales_add_custom">
     </ListView>
 
@@ -31,4 +55,6 @@
         android:textColor="@color/white"
         android:textSize="@dimen/text_size_large"
         android:layout_alignParentBottom="true"/>
+
+
 </RelativeLayout>

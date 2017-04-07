@@ -10,6 +10,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ListView;
 
 import com.baidu.location.BDLocation;
@@ -27,6 +29,7 @@ import com.beijingtest.bjt.util.LogUtil;
 import org.xutils.view.annotation.ViewInject;
 import org.xutils.x;
 
+import java.util.Iterator;
 import java.util.List;
 
 public class HomeFragment extends Fragment{
@@ -36,9 +39,13 @@ public class HomeFragment extends Fragment{
 	private ListView customListView;
 	@ViewInject(R.id.btn_sales_add_custom)
 	private Button addCustom;
+	@ViewInject(R.id.et_sales_search)
+	private EditText etSearch;
+	@ViewInject(R.id.iv_sales_search)
+	private ImageView ivSearch;
 	private CustomAdapter adapter;
-	List<Custom> customList;
-	MyLocation myLocation;
+	private List<Custom> customList;
+	private MyLocation myLocation;
 	public static final String TAG = "HomeFragment";
 	public static final int SCAN_RESULT_LIST = 1;
 	private Handler handler = new Handler() {
@@ -68,10 +75,6 @@ public class HomeFragment extends Fragment{
 		} else {
 			loadData();
 		}*/
-
-        //setAdapter();
-		//getLocation();
-		//loadList();
 
 		setListener();
         return view;
@@ -110,6 +113,25 @@ public class HomeFragment extends Fragment{
 				getActivity().startActivity(intent);
 			}
 		});
+		ivSearch.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				search();
+			}
+		});
+	}
+
+	private void search() {
+		String content = etSearch.getText().toString().trim();
+		Iterator<Custom> it = customList.iterator();
+		while(it.hasNext()) {
+			Custom custom = it.next();
+			String customName = custom.getCustomName();
+			if(!customName.contains(content)) {
+				it.remove();
+			}
+		}
+		adapter.notifyDataSetChanged();
 	}
 
 	/**
