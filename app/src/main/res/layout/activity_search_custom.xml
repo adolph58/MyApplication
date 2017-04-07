@@ -1,0 +1,60 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_search_custom"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context="com.beijingtest.bjt.activity.SearchCustomActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize">
+
+        <ImageView
+            android:id="@+id/iv_search_custom_back"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@mipmap/arrow_left_white" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:text="搜索客户"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/text_size_xlarge" />
+    </android.support.v7.widget.Toolbar>
+    <LinearLayout
+        android:id="@+id/ll_sales_search"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/row_big"
+        android:orientation="horizontal">
+        <EditText
+            android:id="@+id/et_search_custom"
+            android:layout_width="0dp"
+            android:layout_weight="7"
+            android:layout_height="match_parent"
+            android:hint="请输入搜索内容"
+            android:layout_marginLeft="@dimen/margin_small"
+            android:layout_marginRight="@dimen/margin_small"/>
+
+        <ImageView
+            android:id="@+id/iv_search_custom"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:src="@mipmap/icon_search"
+            android:padding="@dimen/com_10dp" />
+    </LinearLayout>
+
+    <ListView
+        android:id="@+id/lv_search_custom"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </ListView>
+
+</LinearLayout>
