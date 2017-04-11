@@ -28,6 +28,7 @@
             android:textColor="@android:color/white"
             android:textSize="@dimen/text_size_xlarge" />
     </android.support.v7.widget.Toolbar>
+
     <LinearLayout
         android:id="@+id/ll_sales_search"
         android:layout_width="match_parent"

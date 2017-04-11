@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.beijingtest.bjt.MyApplication;
 import com.beijingtest.bjt.R;
 import com.beijingtest.bjt.util.ExceptionHandler;
 import com.beijingtest.bjt.util.FilePathUtils;
@@ -74,9 +75,10 @@ public class SettingActivity extends BaseActivity {
     }
 
     private void logout() {
-        File file = new File(FilePathUtils.getDiskFilesDir() ,
-                GlobalConsts.USER_INFO_NAME);
-        file.delete();
+//        File file = new File(FilePathUtils.getDiskFilesDir() ,
+//                GlobalConsts.USER_INFO_NAME);
+//        file.delete();
+        MyApplication.getContext().clearUser();
         MainActivity.instance.finish();
         Intent intent = new Intent(SettingActivity.this,LoginActivity.class);
         startActivity(intent);

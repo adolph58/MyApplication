@@ -9,8 +9,11 @@ import android.widget.RelativeLayout;
 
 import java.io.File;
 
+import com.beijingtest.bjt.MyApplication;
 import com.beijingtest.bjt.R;
 import com.beijingtest.bjt.entity.User;
+import com.beijingtest.bjt.model.AsyncCallback;
+import com.beijingtest.bjt.model.UserModel;
 import com.beijingtest.bjt.util.ExceptionHandler;
 import com.beijingtest.bjt.util.FilePathUtils;
 
@@ -72,12 +75,27 @@ public class SplashActivity extends BaseActivity {
 			
 			@Override
 			public void onAnimationEnd(Animation animation) {
-			    if(User.getCurrentUser().getUsername() == null){
-		            Intent intent = new Intent(SplashActivity.this, LoginActivity.class);
-		            startActivity(intent);
+			    if(MyApplication.getContext().getUsername() != null){
+					String username = MyApplication.getContext().getUsername();
+					String password = MyApplication.getContext().getPassword();
+					UserModel model = new UserModel();
+					model.login(username, password, new AsyncCallback() {
+						@Override
+						public void onSuccess(Object success) {
+							Intent intent = new Intent(SplashActivity.this, MainActivity.class);
+							startActivity(intent);
+						}
+
+						@Override
+						public void onError(Object error) {
+							Intent intent = new Intent(SplashActivity.this, LoginActivity.class);
+							startActivity(intent);
+						}
+					});
+
 		        }else{
-		            Intent intent = new Intent(SplashActivity.this, MainActivity.class);
-				    startActivity(intent);
+					Intent intent = new Intent(SplashActivity.this, LoginActivity.class);
+					startActivity(intent);
 		        }
 				finish();
 			}

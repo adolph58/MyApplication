@@ -5,6 +5,9 @@ public class GlobalConsts {
     // 本地化存储对象的文件名
     public static final String USER_INFO_NAME = "bjtuser.info";
 
+    //本地化存储客户列表文件名
+    public static final String CUSTOM_LIST_NAME = "customList.info";
+
     // 修改昵称
     public static final int USER_INFO_MODIFY_NICKNAME = 1;
 
@@ -20,17 +23,20 @@ public class GlobalConsts {
     // 请求成功返回码
     public static final int RESPONSE_CODE_SUCCESS = 200;
 
+    // 请求失败返回码
+    public static final int RESPONSE_CODE_FAIL = 404;
+
     // URL前缀
     public static final String BASEURL = "http://121.8.149.62:8888/";
 
     //获取客户列表
-    public static final String GET_CUSTOM_LIST = "http://192.168.1.73:8989/Api/phone/List.aspx?State=cust";
-
-    // 注册URL
-    public static final String URL_USER_REGIST = BASEURL + "user/regist";
+    public static final String GET_CUSTOM_LIST = BASEURL + "Api/Customer/List.aspx?isPhone=1";
 
     // 登录URL
-    public static final String URL_USER_LOGIN = BASEURL + "user/login";
+    public static final String URL_USER_LOGIN = BASEURL + "Api/HEemployee/login.aspx";
+
+    //验证码请求URL
+    public static final String URL_GET_IMAGE_CODE = BASEURL + "validateCode.aspx";
 
     // 修改用户信息
     public static final String URL_USER_UPDATE_USER_INFO = BASEURL + "user/update";

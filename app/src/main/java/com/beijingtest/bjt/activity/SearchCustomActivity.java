@@ -10,13 +10,12 @@ import android.widget.ListView;
 import com.beijingtest.bjt.R;
 import com.beijingtest.bjt.adapter.CustomAdapter;
 import com.beijingtest.bjt.entity.Custom;
+import com.beijingtest.bjt.util.SearchUtils;
 import com.beijingtest.bjt.util.Tools;
 
 import org.xutils.view.annotation.ViewInject;
 import org.xutils.x;
 
-import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 public class SearchCustomActivity extends BaseActivity {
@@ -29,12 +28,12 @@ public class SearchCustomActivity extends BaseActivity {
     @ViewInject(R.id.lv_search_custom)
     private ListView listView;
 
-    private CustomAdapter adapter;
-    private List<Custom> customList;
+    private List<Custom> originalCustomList;
     @Override
     protected void initVariables() {
-        Intent intent = getIntent();
-        customList = (List<Custom>)intent.getSerializableExtra("customList");
+        //Intent intent = getIntent();
+        originalCustomList = Custom.getCustomListByFile();  //(List<Custom>)intent.getSerializableExtra("customList");
+        System.out.println(originalCustomList.toString());
     }
 
     @Override
@@ -61,19 +60,10 @@ public class SearchCustomActivity extends BaseActivity {
     }
 
     private void search() {
-        List<Custom> searchCustomList = new ArrayList<>();
-        String content = etSearch.getText().toString().trim();
-        Iterator<Custom> it = customList.iterator();
-        while(it.hasNext()) {
-            Custom custom = it.next();
-            String customName = custom.getCustomName();
-            if(customName.contains(content)) {
-                //it.remove();
-                searchCustomList.add(custom);
-            }
-        }
+        String searchContent = etSearch.getText().toString().trim();
+        List<Custom> searchCustomList = SearchUtils.searchCustom(originalCustomList, searchContent);
         if (searchCustomList.size() > 0 ) {
-            adapter = new CustomAdapter(this,searchCustomList);
+            CustomAdapter adapter = new CustomAdapter(this,searchCustomList);
             listView.setAdapter(adapter);
         } else {
             Tools.showToast("没有搜到客户");

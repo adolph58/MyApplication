@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.ActivityManager;
 import android.app.Application;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Process;
 
 import com.android.volley.RequestQueue;
@@ -33,12 +34,14 @@ public class MyApplication extends Application{
     
     //当前用户
     private User user;
+    //session_id
+    private String sessionId;
     
     // true 表示软件发布了 false 表示在开发阶段
     public static boolean isRelease = false; 
     public static List<Activity> activityList = new ArrayList<Activity>();
     // 放apkServerUrl
-    public static String apkServerUrl;
+    //public static String apkServerUrl;
     public void finish() {
         for(Activity activity:activityList) {
             activity.finish();
@@ -69,13 +72,13 @@ public class MyApplication extends Application{
         SystemParams.init(this);
 
         //创建本地数据库
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                SQLiteUtils data = new SQLiteUtils();
-                data.onCreate();
-            }
-        }).start();
+//        new Thread(new Runnable() {
+//            @Override
+//            public void run() {
+//                SQLiteUtils data = new SQLiteUtils();
+//                data.onCreate();
+//            }
+//        }).start();
 
 
 
@@ -115,15 +118,55 @@ public class MyApplication extends Application{
     }
     
     /**
-     * 保存当前用户
-     * @param user
+     * 保存当前用户信息
+     * @param
      */
-    public void saveCurrentUser(User user){
-        this.user = user;
+    public void saveSessionId(String sessionId, String userId){
+        this.sessionId = sessionId;
+        SharedPreferences pref = getSharedPreferences("user", MODE_PRIVATE);
+        SharedPreferences.Editor editor = pref.edit();
+        editor.putString("session_id", sessionId);
+        editor.putString("userid", userId);
+        editor.commit();
     }
-    
-    public User getCurrentUser(){
-        return this.user;
-    }   
+
+    public void saveUserInfo(String username, String password) {
+        SharedPreferences pref = getSharedPreferences("user", MODE_PRIVATE);
+        SharedPreferences.Editor editor = pref.edit();
+        editor.putString("username", username);
+        editor.putString("password", password);
+        editor.commit();
+    }
+
+    public String getSessionId(){
+        SharedPreferences pref = getSharedPreferences("user", MODE_PRIVATE);
+        String sessionId = pref.getString("session_id", "");
+        return sessionId;
+    }
+
+    public String getUsername() {
+        SharedPreferences pref = getSharedPreferences("user", MODE_PRIVATE);
+        String username = pref.getString("username", "");
+        return username;
+    }
+
+    public String getPassword() {
+        SharedPreferences pref = getSharedPreferences("user", MODE_PRIVATE);
+        String password = pref.getString("password", "");
+        return password;
+    }
+
+    public String getUserId() {
+        SharedPreferences pref = getSharedPreferences("user", MODE_PRIVATE);
+        String userId = pref.getString("userid", "");
+        return userId;
+    }
+
+    public void clearUser() {
+        SharedPreferences pref = getSharedPreferences("user", MODE_PRIVATE);
+        SharedPreferences.Editor editor = pref.edit();
+        editor.clear();
+        editor.commit();
+    }
 
 }

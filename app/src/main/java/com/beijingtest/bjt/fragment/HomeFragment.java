@@ -18,13 +18,23 @@ import com.baidu.location.BDLocation;
 import com.baidu.location.BDLocationListener;
 import com.baidu.location.LocationClient;
 import com.baidu.location.LocationClientOption;
+import com.beijingtest.bjt.MyApplication;
 import com.beijingtest.bjt.R;
 import com.beijingtest.bjt.SimulationServer.api.SalesAPI;
+import com.beijingtest.bjt.activity.LoginActivity;
+import com.beijingtest.bjt.activity.MainActivity;
+import com.beijingtest.bjt.activity.SearchCustomActivity;
+import com.beijingtest.bjt.activity.SplashActivity;
 import com.beijingtest.bjt.entity.Custom;
 import com.beijingtest.bjt.activity.VistLogActivity;
 import com.beijingtest.bjt.adapter.CustomAdapter;
+import com.beijingtest.bjt.entity.CustomList;
 import com.beijingtest.bjt.entity.MyLocation;
+import com.beijingtest.bjt.model.AsyncCallback;
+import com.beijingtest.bjt.model.SalesModel;
+import com.beijingtest.bjt.model.UserModel;
 import com.beijingtest.bjt.util.LogUtil;
+import com.beijingtest.bjt.util.Tools;
 
 import org.xutils.view.annotation.ViewInject;
 import org.xutils.x;
@@ -39,8 +49,8 @@ public class HomeFragment extends Fragment{
 	private ListView customListView;
 	@ViewInject(R.id.btn_sales_add_custom)
 	private Button addCustom;
-	@ViewInject(R.id.et_sales_search)
-	private EditText etSearch;
+//	@ViewInject(R.id.et_sales_search)
+//	private EditText etSearch;
 	@ViewInject(R.id.iv_sales_search)
 	private ImageView ivSearch;
 	private CustomAdapter adapter;
@@ -84,21 +94,58 @@ public class HomeFragment extends Fragment{
 
 	private void loadList() {
 
-		new Thread(new Runnable() {
+//		new Thread(new Runnable() {
+//			@Override
+//			public void run() {
+//				try {
+//					Thread.sleep(100);
+//				    customList = SalesAPI.getCustomList();
+//					Custom.saveCustomList(customList);
+//					customList = SalesAPI.getCustomListByLocation(customList, myLocation);
+//					//System.out.println(customList.toString());
+//				    Message message = new Message();
+//				    message.what = SCAN_RESULT_LIST;
+//				    handler.sendMessage(message);
+//				} catch (InterruptedException e) {
+//					Thread.currentThread().interrupt();
+//				}
+//			}
+//		}).start();
+		SalesModel model = new SalesModel();
+		model.getCustomList(new AsyncCallback() {
 			@Override
-			public void run() {
-				try {
-					Thread.sleep(100);
-				    customList = SalesAPI.getCustomList(myLocation);
-				    //System.out.println(customList.toString());
-				    Message message = new Message();
-				    message.what = SCAN_RESULT_LIST;
-				    handler.sendMessage(message);
-				} catch (InterruptedException e) {
-					Thread.currentThread().interrupt();
+			public void onSuccess(Object success) {
+				customList = (List<Custom>)success;
+				Custom.saveCustomList(customList);
+				customList = SalesAPI.getCustomListByLocation(customList, myLocation);
+				System.out.println("加载成功：" + customList.toString());
+				setAdapter();
+			}
+
+			@Override
+			public void onError(Object error) {
+				String msg = error.toString();
+				System.out.println("加载失败：" + msg);
+				System.out.println("session_id：" + MyApplication.getContext().getSessionId());
+				if ("session失效".equals(msg)) {
+					String username = MyApplication.getContext().getUsername();
+					String password = MyApplication.getContext().getPassword();
+					UserModel model = new UserModel();
+					model.login(username, password, new AsyncCallback() {
+						@Override
+						public void onSuccess(Object success) {
+							loadList();
+						}
+						@Override
+						public void onError(Object error) {
+							Tools.showToast(error.toString());
+						}
+					});
+
 				}
 			}
-		}).start();
+		});
+
 
 	}
 
@@ -116,23 +163,24 @@ public class HomeFragment extends Fragment{
 		ivSearch.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View view) {
-				search();
+				Intent intent = new Intent(getActivity(), SearchCustomActivity.class);
+				getActivity().startActivity(intent);
 			}
 		});
 	}
 
-	private void search() {
-		String content = etSearch.getText().toString().trim();
-		Iterator<Custom> it = customList.iterator();
-		while(it.hasNext()) {
-			Custom custom = it.next();
-			String customName = custom.getCustomName();
-			if(!customName.contains(content)) {
-				it.remove();
-			}
-		}
-		adapter.notifyDataSetChanged();
-	}
+//	private void search() {
+//		String content = etSearch.getText().toString().trim();
+//		Iterator<Custom> it = customList.iterator();
+//		while(it.hasNext()) {
+//			Custom custom = it.next();
+//			String customName = custom.getCustomName();
+//			if(!customName.contains(content)) {
+//				it.remove();
+//			}
+//		}
+//		adapter.notifyDataSetChanged();
+//	}
 
 	/**
 	 * 设置adapter

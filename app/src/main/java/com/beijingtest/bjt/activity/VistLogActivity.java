@@ -120,7 +120,7 @@ public class VistLogActivity extends BaseActivity {
                 vistLog.setUserId(User.getCurrentUser().getId());
                 vistLog.setVistContent(content);
                 custom.setCustomName(company);
-                writeLog();
+                //writeLog();
 
             }
         });
@@ -139,7 +139,7 @@ public class VistLogActivity extends BaseActivity {
             public void run() {
                 SQLiteUtils sqLiteUtils = new SQLiteUtils();
                 long customId = 1;
-                if (custom.getId() <= 0) {
+                if (custom.getID() <= 0) {
                     customId = sqLiteUtils.insertCustom(custom);
                 }
                 long id = sqLiteUtils.insertVistLog(vistLog);
