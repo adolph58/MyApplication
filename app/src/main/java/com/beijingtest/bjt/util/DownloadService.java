@@ -33,6 +33,7 @@ public class DownloadService extends IntentService {
     private Notification notification;
     private NotificationManager notificationManager;
     private RemoteViews remoteViews;
+    private int pro;
     public DownloadService() {
         super("com.beijingtest.bjt.util.DownloadService");
     }
@@ -56,7 +57,7 @@ public class DownloadService extends IntentService {
         notification.contentIntent = pendingIntent;
         // 加载Notification的布局文件
         remoteViews = new RemoteViews(getPackageName(), R.layout.download_file);
-              // 设置下载进度条
+        // 设置下载进度条
         remoteViews.setProgressBar(R.id.pb_download, 100, 0, false);
         notification.contentView = remoteViews;
         notificationManager.notify(0, notification);
