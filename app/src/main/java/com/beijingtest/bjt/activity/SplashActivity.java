@@ -75,7 +75,7 @@ public class SplashActivity extends BaseActivity {
 			
 			@Override
 			public void onAnimationEnd(Animation animation) {
-			    if(MyApplication.getContext().getUsername() != null){
+			    if(!"".equals(MyApplication.getContext().getUsername())){
 					String username = MyApplication.getContext().getUsername();
 					String password = MyApplication.getContext().getPassword();
 					UserModel model = new UserModel();

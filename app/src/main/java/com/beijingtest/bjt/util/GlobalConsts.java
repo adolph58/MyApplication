@@ -27,6 +27,7 @@ public class GlobalConsts {
     public static final int RESPONSE_CODE_FAIL = 404;
 
     // URL前缀
+    //public static final String BASEURL = "http://192.168.1.73:8989/";
     public static final String BASEURL = "http://121.8.149.62:8888/";
 
     //获取客户列表

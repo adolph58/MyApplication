@@ -59,7 +59,7 @@ public class LogListFragment extends Fragment{
 		}*/
 
         //setAdapter();
-		loadList();
+		//loadList();
 		//setListener();
         return view;
     }

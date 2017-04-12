@@ -9,10 +9,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
-import android.support.v7.app.NotificationCompat;
 import android.widget.RemoteViews;
 
-import com.beijingtest.bjt.MyApplication;
 import com.beijingtest.bjt.R;
 import com.beijingtest.bjt.activity.MainActivity;
 

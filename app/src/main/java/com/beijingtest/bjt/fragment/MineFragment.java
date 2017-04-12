@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.beijingtest.bjt.R;
+import com.beijingtest.bjt.activity.MainActivity;
 import com.beijingtest.bjt.activity.SettingActivity;
 import com.beijingtest.bjt.download.DownLoadUtils;
 import com.beijingtest.bjt.download.DownloadApk;
@@ -89,17 +90,18 @@ public class MineFragment extends Fragment {
                                     @Override
                                     public void onClick(DialogInterface dialogInterface, int i) {
                                         //如果手机已经启动下载程序，执行downloadApk。否则跳转到设置界面
-                                        if (DownLoadUtils.getInstance(getActivity().getApplicationContext()).canDownload()) {
-                                            new Thread(new Runnable() {
-                                                @Override
-                                                public void run() {
-                                                    DownloadApk.downloadApk(getActivity().getApplicationContext(), GlobalConsts.URL_APP_UPDATE + appVersion.getFileName(), "京诚检测更新", "bjt");
-                                                }
-                                            }).start();
-
-                                        } else {
-                                            DownLoadUtils.getInstance(getActivity().getApplicationContext()).skipToDownloadManager();
-                                        }
+//                                        if (DownLoadUtils.getInstance(getActivity().getApplicationContext()).canDownload()) {
+//                                            new Thread(new Runnable() {
+//                                                @Override
+//                                                public void run() {
+//                                                    DownloadApk.downloadApk(getActivity().getApplicationContext(), GlobalConsts.URL_APP_UPDATE + appVersion.getFileName(), "京诚检测更新", "bjt");
+//                                                }
+//                                            }).start();
+//
+//                                        } else {
+//                                            DownLoadUtils.getInstance(getActivity().getApplicationContext()).skipToDownloadManager();
+//                                        }
+                                        MainActivity.instance.downloadFile(GlobalConsts.URL_APP_UPDATE + appVersion.getFileName());
                                     }
                                 });
                                 dialog.setNegativeButton("取消", null);

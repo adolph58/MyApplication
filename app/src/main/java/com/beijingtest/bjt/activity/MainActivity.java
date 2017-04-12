@@ -1,7 +1,12 @@
 package com.beijingtest.bjt.activity;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -20,12 +25,15 @@ import com.beijingtest.bjt.fragment.LogListFragment;
 import com.beijingtest.bjt.fragment.MineFragment;
 import com.beijingtest.bjt.model.AsyncCallback;
 import com.beijingtest.bjt.model.VersionModel;
+import com.beijingtest.bjt.util.DownloadService;
 import com.beijingtest.bjt.util.ExceptionHandler;
 import com.beijingtest.bjt.util.GlobalConsts;
 import com.beijingtest.bjt.util.Tools;
 
 import org.xutils.view.annotation.ViewInject;
 import org.xutils.x;
+
+import java.io.File;
 
 public class MainActivity extends BaseActivity {
 
@@ -42,6 +50,7 @@ public class MainActivity extends BaseActivity {
     private ImageButton ibMine;
     @ViewInject(R.id.tv_main_title)
     private TextView tvTitle;
+    private BroadcastReceiver receiver;
 
     @Override
     protected void initVariables() {
@@ -57,9 +66,9 @@ public class MainActivity extends BaseActivity {
         currentShowFragment = homeFragment;
 
         //1.注册下载广播接收器
-        DownloadApk.registerBroadcast(this);
+        //DownloadApk.registerBroadcast(this);
         //2.删除已存在的Apk
-        DownloadApk.removeFile(this);
+        //DownloadApk.removeFile(this);
 
         //检查新版本
         checkAppVersion();
@@ -167,9 +176,12 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void onDestroy() {
-
         //4.反注册广播接收器
-        DownloadApk.unregisterBroadcast(this);
+        //DownloadApk.unregisterBroadcast(this);
+        //移除广播接收器
+        if (receiver != null) {
+            unregisterReceiver(receiver);
+        }
         super.onDestroy();
     }
 
@@ -194,17 +206,19 @@ public class MainActivity extends BaseActivity {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
                                 //如果手机已经启动下载程序，执行downloadApk。否则跳转到设置界面
-                                if (DownLoadUtils.getInstance(getApplicationContext()).canDownload()) {
-                                    new Thread(new Runnable() {
-                                        @Override
-                                        public void run() {
-                                            DownloadApk.downloadApk(getApplicationContext(), GlobalConsts.URL_APP_UPDATE + appVersion.getFileName(), "京诚检测更新", "bjt");
-                                        }
-                                    }).start();
-
-                                } else {
-                                    DownLoadUtils.getInstance(getApplicationContext()).skipToDownloadManager();
-                                }
+                                downloadFile(GlobalConsts.URL_APP_UPDATE + appVersion.getFileName());
+//                                if (DownLoadUtils.getInstance(getApplicationContext()).canDownload()) {
+//
+//                                    new Thread(new Runnable() {
+//                                        @Override
+//                                        public void run() {
+//                                            DownloadApk.downloadApk(getApplicationContext(), GlobalConsts.URL_APP_UPDATE + appVersion.getFileName(), "京诚检测更新", "bjt");
+//                                        }
+//                                    }).start();
+//
+//                                } else {
+//                                    DownLoadUtils.getInstance(getApplicationContext()).skipToDownloadManager();
+//                                }
                             }
                         });
                         dialog.setNegativeButton("取消", null);
@@ -232,5 +246,29 @@ public class MainActivity extends BaseActivity {
 //        toolbar.setTitle("");
 //        setSupportActionBar(toolbar);
 //    }
+
+    /**
+     * 下载apk
+     */
+    public void downloadFile(String url) {
+        Intent downloadIntent = new Intent(this, DownloadService.class);
+        Bundle bundle = new Bundle();
+        bundle.putString("url", url);
+        downloadIntent.putExtras(bundle);
+        startService(downloadIntent);
+        //设置广播接收器，当新版本的apk下载完成后自动弹出安装界面
+        IntentFilter intentFilter = new IntentFilter("com.test.downloadComplete");
+        receiver = new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                Intent install = new Intent(Intent.ACTION_VIEW);
+                String pathString = intent.getStringExtra("downloadFile");
+                install.setDataAndType(Uri.fromFile(new File(pathString)), "application/vnd.android.package-archive");
+                install.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                context.startActivity(install);
+            }
+        };
+        registerReceiver(receiver, intentFilter);
+    }
 
 }
