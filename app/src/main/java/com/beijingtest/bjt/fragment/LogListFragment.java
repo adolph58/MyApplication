@@ -146,17 +146,6 @@ public class LogListFragment extends Fragment{
 		}
 	}*/
 
-	/**
-	 * ListView Item 点击事件监听
-	 */
-	class ListOnItemClickListener implements AdapterView.OnItemClickListener {
-		@Override
-		public void onItemClick(AdapterView<?> parent, View view, int position,
-								long id) {
-
-		}
-	}
-
 	@Override
 	public void onResume() {
 		super.onResume();
