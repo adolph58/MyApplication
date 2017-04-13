@@ -33,7 +33,7 @@ public class LogListFragment extends Fragment{
 	@ViewInject(R.id.lv_vist_log_list)
 	private ListView vistLogListView;
 	private VistLogAdapter adapter;
-	List<VistLog> vistLogList;
+	private List<VistLog> vistLogList;
 	public static final String TAG = "LogListFragment";
 //	public static final int SCAN_RESULT_LIST = 1;
 //	private Handler handler = new Handler() {
