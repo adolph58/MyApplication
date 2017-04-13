@@ -47,8 +47,8 @@ public class HomeFragment extends Fragment{
 	//private static final int REQUECT_CODE_LOCATION = 1;  //申请位置权限返回码
 	@ViewInject(R.id.lv_sales_custom_list)
 	private ListView customListView;
-	@ViewInject(R.id.btn_sales_add_custom)
-	private Button addCustom;
+//	@ViewInject(R.id.btn_sales_add_custom)
+//	private Button addCustom;
 //	@ViewInject(R.id.et_sales_search)
 //	private EditText etSearch;
 	@ViewInject(R.id.iv_sales_search)
@@ -141,7 +141,6 @@ public class HomeFragment extends Fragment{
 							Tools.showToast(error.toString());
 						}
 					});
-
 				}
 			}
 		});
@@ -153,13 +152,13 @@ public class HomeFragment extends Fragment{
 	 * 设置监听
 	 */
 	private void setListener() {
-		addCustom.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View view) {
-				Intent intent = new Intent(getActivity(), VistLogActivity.class);
-				getActivity().startActivity(intent);
-			}
-		});
+//		addCustom.setOnClickListener(new View.OnClickListener() {
+//			@Override
+//			public void onClick(View view) {
+//				Intent intent = new Intent(getActivity(), VistLogActivity.class);
+//				getActivity().startActivity(intent);
+//			}
+//		});
 		ivSearch.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View view) {

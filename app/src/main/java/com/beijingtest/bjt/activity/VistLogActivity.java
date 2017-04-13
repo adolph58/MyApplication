@@ -16,12 +16,14 @@ import com.baidu.location.BDLocation;
 import com.baidu.location.BDLocationListener;
 import com.baidu.location.LocationClient;
 import com.baidu.location.LocationClientOption;
+import com.beijingtest.bjt.MyApplication;
 import com.beijingtest.bjt.R;
 import com.beijingtest.bjt.SimulationServer.SQLiteUtils;
 import com.beijingtest.bjt.entity.Custom;
 import com.beijingtest.bjt.entity.VistLog;
 import com.beijingtest.bjt.entity.User;
 import com.beijingtest.bjt.model.AsyncCallback;
+import com.beijingtest.bjt.model.SalesModel;
 import com.beijingtest.bjt.model.UserModel;
 import com.beijingtest.bjt.ui.PicChoiceDialog;
 import com.beijingtest.bjt.util.BitmapCallback;
@@ -53,18 +55,18 @@ public class VistLogActivity extends BaseActivity {
     @ViewInject(R.id.iv_vist_log_back)
     ImageView ivBack;
 
-    public static final int SCAN_RESULT_LIST = 1;
-    private Handler handler = new Handler() {
-        @Override
-        public void handleMessage(Message msg) {
-            switch (msg.what) {
-                case SCAN_RESULT_LIST:
-                    Tools.showToast("保存成功！");
-                    VistLogActivity.this.finish();
-                    break;
-            }
-        }
-    };
+//    public static final int SCAN_RESULT_LIST = 1;
+//    private Handler handler = new Handler() {
+//        @Override
+//        public void handleMessage(Message msg) {
+//            switch (msg.what) {
+//                case SCAN_RESULT_LIST:
+//                    Tools.showToast("保存成功！");
+//                    VistLogActivity.this.finish();
+//                    break;
+//            }
+//        }
+//    };
 
     private Custom custom;
     private VistLog vistLog;
@@ -116,11 +118,12 @@ public class VistLogActivity extends BaseActivity {
                 //Tools.showToast("客户：" + custom.getCustomName());
 //                VistLog vistLog = new VistLog();
 //                Location location = LocationUtils.getLocation();
-                vistLog.setCustomName(company);
-                vistLog.setUserId(User.getCurrentUser().getId());
-                vistLog.setVistContent(content);
-                custom.setCustomName(company);
-                //writeLog();
+                //vistLog.setCustomName(company);
+                vistLog.setCustomerID(custom.getID());
+                //vistLog.setCreateEmpID(User.getCurrentUser().getId());
+                vistLog.setRemark(content);
+                //custom.setCustomName(company);
+                writeLog();
 
             }
         });
@@ -134,23 +137,53 @@ public class VistLogActivity extends BaseActivity {
     }
 
     private void writeLog() {
-        new Thread(new Runnable() {
+        SalesModel salesModel = new SalesModel();
+        salesModel.writeVistLog(vistLog, new AsyncCallback() {
             @Override
-            public void run() {
-                SQLiteUtils sqLiteUtils = new SQLiteUtils();
-                long customId = 1;
-                if (custom.getID() <= 0) {
-                    customId = sqLiteUtils.insertCustom(custom);
-                }
-                long id = sqLiteUtils.insertVistLog(vistLog);
-                if(customId > 0 && id > 0) {
-                    Message message = new Message();
-                    message.what = SCAN_RESULT_LIST;
-                    handler.sendMessage(message);
-                }
-
+            public void onSuccess(Object success) {
+                Tools.showToast("保存成功");
+                finish();
             }
-        }).start();
+
+            @Override
+            public void onError(Object error) {
+                String msg = error.toString();
+                if ("session失效".equals(msg)) {
+                    String username = MyApplication.getContext().getUsername();
+                    String password = MyApplication.getContext().getPassword();
+                    UserModel model = new UserModel();
+                    model.login(username, password, new AsyncCallback() {
+                        @Override
+                        public void onSuccess(Object success) {
+                            writeLog();
+                        }
+                        @Override
+                        public void onError(Object error) {
+                            Tools.showToast(error.toString());
+                        }
+                    });
+                }
+            }
+        });
+
+
+//        new Thread(new Runnable() {
+//            @Override
+//            public void run() {
+//                SQLiteUtils sqLiteUtils = new SQLiteUtils();
+//                long customId = 1;
+//                if (custom.getID() <= 0) {
+//                    customId = sqLiteUtils.insertCustom(custom);
+//                }
+//                long id = sqLiteUtils.insertVistLog(vistLog);
+//                if(customId > 0 && id > 0) {
+//                    Message message = new Message();
+//                    message.what = SCAN_RESULT_LIST;
+//                    handler.sendMessage(message);
+//                }
+//
+//            }
+//        }).start();
     }
 
     /**
@@ -321,12 +354,12 @@ public class VistLogActivity extends BaseActivity {
                 // 纬度
                 double latitude = bdLocation.getLatitude();
                 LogUtil.i("纬度->", latitude);
-                custom.setAddress(address);
-                custom.setLatitude(latitude);
-                custom.setLongitude(longitude);
-                vistLog.setAddress(address);
-                vistLog.setLatitude(latitude);
-                vistLog.setLongitude(longitude);
+                //custom.setAddress(address);
+                //custom.setLatitude(latitude);
+                //custom.setLongitude(longitude);
+                vistLog.setAdress(address);
+                vistLog.setLongitudePoint(longitude + "," + latitude);
+
             } catch (Exception e) {
             }
         }

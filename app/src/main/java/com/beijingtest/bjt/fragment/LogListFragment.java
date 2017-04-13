@@ -11,11 +11,16 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import com.beijingtest.bjt.MyApplication;
 import com.beijingtest.bjt.R;
 import com.beijingtest.bjt.SimulationServer.SQLiteUtils;
 import com.beijingtest.bjt.entity.VistLog;
 import com.beijingtest.bjt.adapter.VistLogAdapter;
+import com.beijingtest.bjt.model.AsyncCallback;
+import com.beijingtest.bjt.model.SalesModel;
+import com.beijingtest.bjt.model.UserModel;
 import com.beijingtest.bjt.util.LogUtil;
+import com.beijingtest.bjt.util.Tools;
 
 import org.xutils.view.annotation.ViewInject;
 import org.xutils.x;
@@ -30,17 +35,17 @@ public class LogListFragment extends Fragment{
 	private VistLogAdapter adapter;
 	List<VistLog> vistLogList;
 	public static final String TAG = "LogListFragment";
-	public static final int SCAN_RESULT_LIST = 1;
-	private Handler handler = new Handler() {
-		@Override
-		public void handleMessage(Message msg) {
-			switch (msg.what) {
-				case SCAN_RESULT_LIST:
-						setAdapter();
-					break;
-			}
-		}
-	};
+//	public static final int SCAN_RESULT_LIST = 1;
+//	private Handler handler = new Handler() {
+//		@Override
+//		public void handleMessage(Message msg) {
+//			switch (msg.what) {
+//				case SCAN_RESULT_LIST:
+//						setAdapter();
+//					break;
+//			}
+//		}
+//	};
 
 	@Nullable
     @Override
@@ -67,22 +72,50 @@ public class LogListFragment extends Fragment{
 
 
 	private void loadList() {
-		new Thread(new Runnable() {
+		SalesModel salesModel = new SalesModel();
+		salesModel.getVistLog(new AsyncCallback() {
 			@Override
-			public void run() {
-				try {
-					Thread.sleep(100);
-					SQLiteUtils sqLiteUtils = new SQLiteUtils();
-					vistLogList = sqLiteUtils.queryVistLogList();
-				    //System.out.println(customList.toString());
-				    Message message = new Message();
-				    message.what = SCAN_RESULT_LIST;
-				    handler.sendMessage(message);
-				} catch (InterruptedException e) {
-					Thread.currentThread().interrupt();
+			public void onSuccess(Object success) {
+				vistLogList = (List<VistLog>) success;
+				setAdapter();
+			}
+
+			@Override
+			public void onError(Object error) {
+				String msg = error.toString();
+				if ("session失效".equals(msg)) {
+					String username = MyApplication.getContext().getUsername();
+					String password = MyApplication.getContext().getPassword();
+					UserModel model = new UserModel();
+					model.login(username, password, new AsyncCallback() {
+						@Override
+						public void onSuccess(Object success) {
+							loadList();
+						}
+						@Override
+						public void onError(Object error) {
+							Tools.showToast(error.toString());
+						}
+					});
 				}
 			}
-		}).start();
+		});
+//		new Thread(new Runnable() {
+//			@Override
+//			public void run() {
+//				try {
+//					Thread.sleep(100);
+//					SQLiteUtils sqLiteUtils = new SQLiteUtils();
+//					vistLogList = sqLiteUtils.queryVistLogList();
+//				    //System.out.println(customList.toString());
+//				    Message message = new Message();
+//				    message.what = SCAN_RESULT_LIST;
+//				    handler.sendMessage(message);
+//				} catch (InterruptedException e) {
+//					Thread.currentThread().interrupt();
+//				}
+//			}
+//		}).start();
 	}
 
 

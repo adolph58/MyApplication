@@ -33,6 +33,9 @@ public class GlobalConsts {
     //获取客户列表
     public static final String GET_CUSTOM_LIST = BASEURL + "Api/Customer/List.aspx?isPhone=1";
 
+    //获取拜访日志
+    public static final String GET_VIST_LOG =  BASEURL + "Api/CustomerVisit/List.aspx?isPhone=1";
+
     // 登录URL
     public static final String URL_USER_LOGIN = BASEURL + "Api/HEemployee/login.aspx";
 

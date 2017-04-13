@@ -57,8 +57,8 @@ public class VistLogAdapter extends BaseAdapter{
         }
         holder = (ViewHolder) convertView.getTag();
         String company = vistLogList.get(position).getCustomName();
-        String content = vistLogList.get(position).getVistContent();
-        String address = vistLogList.get(position).getAddress();
+        String content = vistLogList.get(position).getRemark();
+        String address = vistLogList.get(position).getAdress();
         holder.tvCompany.setText(company);
         holder.tvContent.setText(content);
         holder.tvAdress.setText("地址：" + address);

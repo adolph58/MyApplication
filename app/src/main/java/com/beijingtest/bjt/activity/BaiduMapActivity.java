@@ -81,8 +81,11 @@ public class BaiduMapActivity extends BaseActivity {
     private void toLocation() {
         // 移动地图
         // 地图的显示级别4-17 数字越小，比例越大
-        double latitude = vistLog.getLatitude();
-        double longitude = vistLog.getLongitude();
+
+        String[] strings = vistLog.getLongitudePoint().split(",");
+
+        double latitude = Double.parseDouble(strings[1]);
+        double longitude = Double.parseDouble(strings[0]);
         LatLng currentLocation = new LatLng(latitude, longitude);
         // status状态
         MapStatusUpdate mapStatusUpdate = MapStatusUpdateFactory

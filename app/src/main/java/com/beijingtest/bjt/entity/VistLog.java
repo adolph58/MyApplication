@@ -7,34 +7,50 @@ import java.io.Serializable;
  */
 
 public class VistLog implements Serializable{
-    private int id;
+    private int ID;
     //销售人员id
-    private int userId;
+    private int CreateEmpID;
+    //客户ID
+    private int CustomerID;
     //客户名称
     private String CustomName;
     //拜访内容
-    private String vistContent;
+    private String Remark;
+    //经纬度
+    private String LongitudePoint;
     //纬度
-    private double latitude;
+    private String latitude;
     //经度
-    private double longitude;
+    private String longitude;
     //地址
-    String address;
+    private String Adress;
+    //客户负责人姓名
+    private String VisitName;
+    //拜访时间
+    private String CreateDate;
 
-    public int getId() {
-        return id;
+    public int getID() {
+        return ID;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setID(int ID) {
+        this.ID = ID;
     }
 
-    public int getUserId() {
-        return userId;
+    public int getCreateEmpID() {
+        return CreateEmpID;
     }
 
-    public void setUserId(int userId) {
-        this.userId = userId;
+    public void setCreateEmpID(int createEmpID) {
+        CreateEmpID = createEmpID;
+    }
+
+    public int getCustomerID() {
+        return CustomerID;
+    }
+
+    public void setCustomerID(int customerID) {
+        CustomerID = customerID;
     }
 
     public String getCustomName() {
@@ -45,35 +61,59 @@ public class VistLog implements Serializable{
         CustomName = customName;
     }
 
-    public String getVistContent() {
-        return vistContent;
+    public String getRemark() {
+        return Remark;
     }
 
-    public void setVistContent(String vistContent) {
-        this.vistContent = vistContent;
+    public void setRemark(String remark) {
+        Remark = remark;
     }
 
-    public double getLatitude() {
+    public String getLongitudePoint() {
+        return LongitudePoint;
+    }
+
+    public void setLongitudePoint(String longitudePoint) {
+        LongitudePoint = longitudePoint;
+    }
+
+    public String getLatitude() {
         return latitude;
     }
 
-    public void setLatitude(double latitude) {
+    public void setLatitude(String latitude) {
         this.latitude = latitude;
     }
 
-    public double getLongitude() {
+    public String getLongitude() {
         return longitude;
     }
 
-    public void setLongitude(double longitude) {
+    public void setLongitude(String longitude) {
         this.longitude = longitude;
     }
 
-    public String getAddress() {
-        return address;
+    public String getAdress() {
+        return Adress;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setAdress(String adress) {
+        Adress = adress;
+    }
+
+    public String getVisitName() {
+        return VisitName;
+    }
+
+    public void setVisitName(String visitName) {
+        VisitName = visitName;
+    }
+
+    public String getCreateDate() {
+        return CreateDate;
+    }
+
+    public void setCreateDate(String createDate) {
+        CreateDate = createDate;
     }
 }

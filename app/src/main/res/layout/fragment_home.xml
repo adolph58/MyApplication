@@ -44,20 +44,20 @@
         android:layout_above="@+id/btn_sales_add_custom">
     </ListView>
 
-    <Button
-        android:id="@+id/btn_sales_add_custom"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/row_normal"
-        android:layout_marginTop="@dimen/margin_small"
-        android:layout_marginBottom="@dimen/margin_small"
-        android:layout_marginLeft="@dimen/margin_large"
-        android:layout_marginRight="@dimen/margin_large"
-        android:background="@drawable/button_shape"
-        android:text="添加新客户"
-        android:gravity="center"
-        android:textColor="@color/white"
-        android:textSize="@dimen/text_size_large"
-        android:layout_alignParentBottom="true"/>
+    <!--<Button-->
+        <!--android:id="@+id/btn_sales_add_custom"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="@dimen/row_normal"-->
+        <!--android:layout_marginTop="@dimen/margin_small"-->
+        <!--android:layout_marginBottom="@dimen/margin_small"-->
+        <!--android:layout_marginLeft="@dimen/margin_large"-->
+        <!--android:layout_marginRight="@dimen/margin_large"-->
+        <!--android:background="@drawable/button_shape"-->
+        <!--android:text="添加新客户"-->
+        <!--android:gravity="center"-->
+        <!--android:textColor="@color/white"-->
+        <!--android:textSize="@dimen/text_size_large"-->
+        <!--android:layout_alignParentBottom="true"/>-->
 
 
 </RelativeLayout>
