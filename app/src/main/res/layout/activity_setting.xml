@@ -4,7 +4,7 @@
     android:id="@+id/activity_setting"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.beijingtest.bjt.activity.SettingActivity"
+    tools:context="com.artech.demo.activity.SettingActivity"
     android:orientation="vertical"
     android:background="@color/mine_background">
     <android.support.v7.widget.Toolbar

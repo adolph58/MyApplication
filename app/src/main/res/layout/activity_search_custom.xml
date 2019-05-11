@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@color/white"
     android:orientation="vertical"
-    tools:context="com.beijingtest.bjt.activity.SearchCustomActivity">
+    tools:context="com.artech.demo.activity.SearchCustomActivity">
 
     <android.support.v7.widget.Toolbar
         android:layout_width="match_parent"
