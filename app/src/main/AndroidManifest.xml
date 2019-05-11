@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.beijingtest.bjt">
     <!--<uses-sdk  android:minSdkVersion="14"-->
         <!--android:targetSdkVersion="21"/>-->
@@ -40,7 +41,8 @@
     <!-- 百度地图权限 -->
     <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS" />
     <uses-permission android:name="android.permission.GET_TASKS" />
-    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"
+        tools:ignore="ProtectedPermissions" />
 
     <uses-feature android:name="android.hardware.camera" />
     <uses-feature android:name="android.hardware.camera.autofocus" />
@@ -57,12 +59,12 @@
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:launchMode="singleTask">
 
-            <!-- <intent-filter> -->
-            <!-- <action android:name="android.intent.action.MAIN" /> -->
+             <intent-filter>
+             <action android:name="android.intent.action.MAIN" />
 
 
-            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
-            <!-- </intent-filter> -->
+             <category android:name="android.intent.category.LAUNCHER" />
+             </intent-filter>
 
         </activity>
 
@@ -94,23 +96,8 @@
             android:name=".activity.SettingActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:launchMode="singleTask" />
-        <activity
-            android:name=".activity.UserInfoActivity"
-            android:configChanges="orientation|screenSize|keyboardHidden"
-            android:launchMode="singleTask" />
         <activity android:name=".activity.VistLogActivity" />
-        <activity android:name=".activity.SalesActivity" />
         <activity android:name=".activity.BaiduMapActivity">
-
-            <!-- <intent-filter> -->
-            <!-- <action android:name="android.intent.action.MAIN" /> -->
-
-
-            <!-- <category android:name="android.intent.category.LAUNCHER" /> -->
-            <!-- </intent-filter> -->
-
-        </activity>
-        <activity android:name=".activity.TestActivity">
 
             <!-- <intent-filter> -->
             <!-- <action android:name="android.intent.action.MAIN" /> -->
