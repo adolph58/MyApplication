@@ -1,6 +1,6 @@
 <resources>
-    <!--报表展示显示，销售管理显示，采样管理隐藏，审核审批显示-->
-    <string name="app_name">京诚检测</string>
+    <!--报表展示显示-->
+    <string name="app_name">demo</string>
     <string name="tv_login_username">用户名：</string>
     <string name="tv_login_password">密 码：</string>
     <string name="bt_login">登录</string>
